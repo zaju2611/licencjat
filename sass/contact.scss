@@ -13,7 +13,7 @@ body {
 	height: 100vh;
 	font-family: "Kanit", sans-serif;
 	color: rgb(255, 255, 255);
-	background-color: $main-color;
+	background-color: $secondary-color;
 	font-size: 20px;
 }
 
@@ -34,7 +34,7 @@ body {
 	text-align: center;
 	font-size: 1.3rem;
 	margin-bottom: 1em;
-	color: $secondary-color;
+	color: $main-color;
 }
 
 .formularz {
@@ -69,7 +69,7 @@ body {
 	width: 100%;
 	height: 15%;
 	border: none;
-	background-color: $secondary-color;
+	background-color: $main-color;
 	color: $pure-white;
 	border-radius: 4px;
 	font-size: 1rem;
@@ -77,7 +77,7 @@ body {
 	cursor: pointer;
 
 	&:hover {
-		background-color: $main-color;
+		background-color: $secondary-color;
 	}
 }
 
