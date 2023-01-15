@@ -18,39 +18,93 @@ body {
 }
 
 .contact-form {
-	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 	width: 80%;
-	height: 50%;
+	max-width: 900px;
+	height: 40%;
 	background-color: $light-white;
 	padding: 1em 2em;
 	box-shadow: 5px 5px 10px $dark;
 	border-radius: 10px;
 }
 .contact-header {
-	margin-top: 1em;
 	text-align: center;
-	font-size: 1.2rem;
+	font-size: 1.3rem;
 	margin-bottom: 1em;
 	color: $secondary-color;
 }
+
+.formularz {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+	height: 80%;
+}
+
 .email {
 	width: 100%;
-	padding: 1em 2em;
+	padding: 1em 0.5em;
+	height: 15%;
+	border: none;
+	border-radius: 5px;
 }
 
 .message {
-	margin-top: 0.5em;
-	min-height: 150px;
+	margin-top: 1.5em;
+	height: 50%;
 	width: 100%;
-	padding: 1em 2em;
+	padding: 1em 0.5em;
+	border: none;
+	border-radius: 5px;
 }
 
 .button-send {
-	margin-top: 0.5em;
+	margin-top: 1.5em;
 	padding: 0.5em;
 	width: 100%;
+	height: 15%;
 	border: none;
 	background-color: $secondary-color;
 	color: $pure-white;
 	border-radius: 4px;
+	font-size: 1rem;
+	transition: background-color 0.3s;
+	cursor: pointer;
+
+	&:hover {
+		background-color: $main-color;
+	}
+}
+
+@media (min-width: 576px) {
+	.contact-header {
+		text-align: center;
+		font-size: 1.7rem;
+		margin-bottom: 1em;
+		color: $secondary-color;
+	}
+}
+@media (min-width: 768px) {
+	.contact-header {
+		text-align: center;
+		font-size: 2rem;
+		margin-bottom: 1em;
+		color: $secondary-color;
+	}
+
+	.button-send {
+		font-size: 1.5rem;
+	}
+	.email {
+		font-size: 1rem;
+	}
+
+	.message {
+		font-size: 1rem;
+	}
 }
