@@ -1,0 +1,167 @@
+@import "./colors";
+@import "./components";
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body {
+	position: relative;
+	font-family: "Kanit", sans-serif;
+	font-size: 1.6rem;
+	background-color: $light-white;
+}
+
+.nav {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	height: 6em;
+
+	background-color: $secondary-color;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+
+	&-brand {
+		position: absolute;
+		left: 1em;
+		text-decoration: none;
+		font-size: 2.5rem;
+		color: $pure-white;
+		letter-spacing: 2px;
+		text-shadow: 5px 5px 10px;
+		.dark-text {
+			color: $dark;
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+
+		i {
+			color: $green-color;
+		}
+	}
+
+	&__item {
+		text-decoration: none;
+		text-transform: uppercase;
+		color: $pure-white;
+		font-size: 1.2rem;
+		padding: 0 1em;
+		transition: color 0.3s;
+		&:hover {
+			color: $light-white;
+		}
+	}
+}
+
+.header {
+	text-align: center;
+	&__logo {
+		margin: 0.8em;
+		font-size: 2.5em;
+		color: $pure-white;
+		letter-spacing: 2px;
+
+		.dark-text {
+			color: $dark;
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+
+		i {
+			color: $green-color;
+		}
+	}
+	&__text {
+		color: $dark;
+		font-size: 2rem;
+	}
+
+	&__list {
+		font-size: 1.3rem;
+		margin: 0.5em;
+		list-style-position: inside;
+		list-style-image: url("../img/check-square\ \(1\).svg");
+	}
+	&__about-application {
+		padding: 1em;
+		margin-top: 1em;
+		font-size: 1.2rem;
+		margin-bottom: 1.5em;
+	}
+}
+
+.main {
+	background-color: $secondary-color;
+
+	.wrapper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+	&__btn {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 10em;
+		height: 15em;
+		margin-bottom: 1em;
+		border: none;
+		background-color: $light-white;
+		border-radius: 5px;
+		box-shadow: 5px 5px 10px $dark;
+		cursor: pointer;
+		transition: background-color 0.3s;
+		padding: 2em;
+		&-1 {
+			margin-top: 1em;
+		}
+
+		.icon {
+			width: 100%;
+			position: absolute;
+			top: 20%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: $main-color;
+			font-size: 7rem;
+		}
+
+		&-text {
+			width: 100%;
+			position: absolute;
+			top: 60%;
+
+			text-align: center;
+			color: $dark;
+		}
+		&:hover {
+			background-color: $pure-white;
+		}
+	}
+}
+
+.footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 5em;
+	text-align: center;
+	background-color: $dark;
+	color: $pure-white;
+}
+
+@import "./small";
+@import "./medium";
