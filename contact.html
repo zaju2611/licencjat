@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/contact.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7e5f0f75ea.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="contact-form">
+        <h1 class="contact-header">Skontaktuj się z nami!</h1>
+        <form action="https://formsubmit.co/kuba165@vp.pl" method="POST">
+            <input class="email" type="email" name="Email" required placeholder="Email Adress">
+            <input class="message" type="text" name="Wiadomość" required placeholder="Tutaj wpisz treść wiadomości">
+            <input type="hidden" name="_subject" value="Wiadomość z geoDraw">
+            <input type="hidden" name="_next" value="http://127.0.0.1:5500/thanks.html">
+            <button class="button-send" type="submit">Wyślij</button>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+@import "./colors";
+@import "./components";
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	font-family: "Kanit", sans-serif;
+	color: rgb(255, 255, 255);
+	background-color: $main-color;
+	font-size: 20px;
+}
+
+.contact-form {
+	position: relative;
+	width: 80%;
+	height: 50%;
+	background-color: $light-white;
+	padding: 1em 2em;
+	box-shadow: 5px 5px 10px $dark;
+	border-radius: 10px;
+}
+.contact-header {
+	margin-top: 1em;
+	text-align: center;
+	font-size: 1.2rem;
+	margin-bottom: 1em;
+	color: $secondary-color;
+}
+.email {
+	width: 100%;
+	padding: 1em 2em;
+}
+
+.message {
+	margin-top: 0.5em;
+	min-height: 150px;
+	width: 100%;
+	padding: 1em 2em;
+}
+
+.button-send {
+	margin-top: 0.5em;
+	padding: 0.5em;
+	width: 100%;
+	border: none;
+	background-color: $secondary-color;
+	color: $pure-white;
+	border-radius: 4px;
+}
