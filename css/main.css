@@ -85,6 +85,9 @@ body {
 .nav__item:hover {
   color: rgb(217, 208, 208);
 }
+.nav__item:last-child {
+  padding-right: 2em;
+}
 
 .header {
   text-align: center;

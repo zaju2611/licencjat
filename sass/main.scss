@@ -60,6 +60,9 @@ body {
 		&:hover {
 			color: $light-white;
 		}
+		&:last-child {
+			padding-right: 2em;
+		}
 	}
 }
 
@@ -162,7 +165,6 @@ body {
 	background-color: $dark;
 	color: $pure-white;
 }
-
 
 @import "./small";
 @import "./medium";
