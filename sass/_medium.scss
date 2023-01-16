@@ -44,5 +44,26 @@
 				font-size: 3rem;
 			}
 		}
+
+		h2 {
+			font-size: 3rem;
+			padding-bottom: 1em;
+		}
+	}
+	.thanks-box {
+		h1 {
+			text-align: center;
+			font-size: 5rem;
+		}
+		.info {
+			font-size: 3.5rem;
+		}
+
+		.back_button {
+			margin-top: 4em;
+			a {
+				font-size: 2.5rem;
+			}
+		}
 	}
 }

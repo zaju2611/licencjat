@@ -5,3 +5,16 @@ $light-white: rgb(217, 208, 208);
 $dark: #2e2e2e;
 $green-color: #00ffaa;
 $green-color-hover: #0fe29c;
+
+$main-gradiend: linear-gradient(
+	216deg,
+	rgba(0, 24, 36, 1) 0%,
+	rgba(16, 118, 142, 1) 32%,
+	rgba(0, 212, 255, 1) 100%
+);
+$secondary-gradiend: linear-gradient(
+	242deg,
+	rgba(180, 215, 232, 1) 0%,
+	rgba(208, 210, 198, 1) 53%,
+	rgba(183, 217, 220, 1) 84%
+);

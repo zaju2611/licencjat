@@ -6,7 +6,7 @@
 	}
 	.header {
 		&__text {
-			font-size: 2rem;
+			font-size: 2.5rem;
 		}
 
 		&__list {
@@ -28,6 +28,25 @@
 			}
 
 			&-text {
+				font-size: 2rem;
+			}
+		}
+
+		h2 {
+			font-size: 2.5rem;
+		}
+	}
+	.thanks-box {
+		h1 {
+			text-align: center;
+			font-size: 3.5rem;
+		}
+		.info {
+			font-size: 2.5rem;
+		}
+
+		.back_button {
+			a {
 				font-size: 2rem;
 			}
 		}
