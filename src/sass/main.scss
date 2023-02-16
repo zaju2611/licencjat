@@ -44,7 +44,8 @@ a {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		font-family: "Tourney", cursive;
+		// font-family: "Tourney", cursive;
+
 		&-list {
 			font-weight: 200;
 			&-item {
@@ -253,7 +254,7 @@ a {
 			justify-content: center;
 			align-items: center;
 			flex-direction: column;
-			height: 80vh;
+			min-height: 80vh;
 			&-h1 {
 				font-size: 4.2rem;
 				color: c.$dark-blue;
@@ -278,6 +279,149 @@ a {
 				&-button:hover {
 					background-color: c.$dark-blue;
 				}
+			}
+		}
+	}
+}
+
+.mainRegister,
+.mainLogin {
+	&_container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		position: relative;
+		min-height: 80vh;
+		&-h1 {
+			padding-bottom: 0.5em;
+			font-size: 4.2rem;
+			color: c.$blue;
+		}
+		&-form {
+			padding: 1.2em;
+			border: 2px solid c.$dark-blue;
+			border-radius: 1em;
+			background-color: c.$light-blue;
+			width: 50%;
+			&-box {
+				display: flex;
+				flex-direction: column;
+				text-align: start;
+				label {
+					font-size: 1.5rem;
+					margin-bottom: 0.3em;
+					margin-left: 0.5em;
+				}
+				input {
+					font-family: "Rajdhani", sans-serif;
+					width: 100%;
+					padding: 1em;
+					border: none;
+					border-radius: 0.5em;
+					font-size: 1.2rem;
+				}
+				.error-text {
+					visibility: hidden;
+					color: c.$purple;
+					text-align: end;
+					margin-left: 1em;
+					margin: 0.2em;
+					font-size: 1.2rem;
+				}
+				.passwordError {
+					margin-bottom: 1em;
+				}
+			}
+			&-box.error {
+				.error-text {
+					visibility: visible;
+				}
+			}
+			&-buttons {
+				margin-top: 0.5em;
+				display: flex;
+				justify-content: flex-end;
+
+				.send,
+				.clear,
+				.login {
+					display: block;
+					padding: 10px 5px;
+					margin-left: 10px;
+					width: 100px;
+					background-color: c.$dark-blue;
+					color: c.$white;
+					border: none;
+					border-radius: 0.5em;
+					cursor: pointer;
+					transition: background-color 0.3s, color 0.3s;
+				}
+				.send:hover,
+				.clear:hover,
+				.login:hover {
+					background-color: c.$white;
+					color: c.$dark-blue;
+				}
+
+				.login {
+					width: 150px;
+				}
+			}
+			&-text {
+				.textRegister {
+					text-align: center;
+					margin-top: 1em;
+				}
+				a {
+					font-size: 2rem;
+					transition: color 0.3s;
+				}
+
+				a:hover {
+					color: c.$purple;
+				}
+			}
+			.popup {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				position: absolute;
+				text-align: center;
+				top: -300px;
+				left: 90%;
+				transform: translate(-50%, -50%);
+				padding: 1em;
+				background-color: c.$light-blue;
+				color: c.$dark-blue;
+				border-radius: 1em;
+				border: 1px solid c.$dark-blue;
+				transition: top 0.5s;
+
+				p {
+					font-size: 1.4rem;
+				}
+				.close {
+					margin-top: 20px;
+					padding: 0.5em;
+					width: 10em;
+					border-radius: 0.5em;
+					font-size: 1.3rem;
+					border: none;
+					background-color: c.$dark-blue;
+					color: c.$white;
+					cursor: pointer;
+					transition: background-color 0.3s, color 0.3s;
+				}
+				.close:hover {
+					background-color: c.$white;
+					color: c.$dark-blue;
+				}
+			}
+
+			.show-popup {
+				top: 100px;
 			}
 		}
 	}
