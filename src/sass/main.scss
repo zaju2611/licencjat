@@ -22,6 +22,9 @@ body {
 	background-color: c.$white;
 }
 
+button {
+	font-family: "Rajdhani", sans-serif;
+}
 .wrapper {
 	margin: 0 auto;
 	width: 100%;
@@ -160,8 +163,6 @@ a {
 }
 
 .footer {
-	position: absolute;
-	bottom: 0;
 	width: 100%;
 	background-color: c.$dark-blue;
 	padding: 1em;
@@ -181,7 +182,7 @@ a {
 .mainContact {
 	&_section {
 		&-container {
-			min-height: 80vh;
+			min-height: 100vh;
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -254,7 +255,7 @@ a {
 			justify-content: center;
 			align-items: center;
 			flex-direction: column;
-			min-height: 80vh;
+			min-height: 90vh;
 			&-h1 {
 				font-size: 4.2rem;
 				color: c.$dark-blue;
@@ -292,7 +293,7 @@ a {
 		align-items: center;
 		flex-direction: column;
 		position: relative;
-		min-height: 80vh;
+		min-height: 90vh;
 		&-h1 {
 			padding-bottom: 0.5em;
 			font-size: 4.2rem;
@@ -422,6 +423,226 @@ a {
 
 			.show-popup {
 				top: 100px;
+			}
+		}
+	}
+}
+
+.mainDraw {
+	background-color: c.$light-blue;
+	min-height: 100vh;
+	&_container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		width: 100%;
+		gap: 1em;
+		padding: 1em;
+
+		&-tools-board {
+			display: flex;
+			flex-direction: row;
+			border-radius: 0.5em;
+			padding: 1em;
+			min-width: 60%;
+			background-color: c.$dark-blue;
+			.row {
+				padding: 0 2em;
+				.title {
+					font-size: 2rem;
+					color: c.$white;
+					font-weight: bold;
+				}
+				.options {
+					list-style: none;
+					color: c.$white;
+					font-size: 1.5rem;
+					margin-top: 0.5em;
+					.option {
+						margin-bottom: 0.2em;
+						cursor: pointer;
+						#size-slider,
+						#fill-color,
+						.fill-color {
+							cursor: pointer;
+						}
+						transition: color 0.3s;
+
+						#fill-color:checked ~ label {
+							color: c.$purple;
+						}
+
+						#size-slider {
+							width: 100%;
+							height: 5px;
+						}
+					}
+					.option:hover {
+						color: c.$light-blue;
+					}
+					.option:is(.active) {
+						color: c.$purple;
+					}
+				}
+			}
+			.colors {
+				.options {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					flex-direction: column;
+
+					.option {
+						height: 1.2em;
+						width: 1.2em;
+						border: 1px solid c.$white;
+
+						&:nth-child(1) {
+							background-color: #ff0000;
+							transition: color 0.3s;
+						}
+						&:nth-child(1):hover {
+							background-color: #dd0000;
+						}
+						&:nth-child(2) {
+							background-color: #008000;
+							transition: color 0.3s;
+						}
+						&:nth-child(2):hover {
+							background-color: #006000;
+						}
+						&:nth-child(3) {
+							background-color: #0000ff;
+							transition: color 0.3s;
+						}
+						&:nth-child(3):hover {
+							background-color: #0000dd;
+						}
+						&:nth-child(4) {
+							background-color: #ffff00;
+							transition: color 0.3s;
+						}
+						&:nth-child(4):hover {
+							background-color: #dddd00;
+						}
+					}
+				}
+			}
+			.buttons {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+
+				.button {
+					width: 9em;
+					padding: 0.5em;
+					margin: 0.5em;
+					border: none;
+					border-radius: 0.5em;
+					background-color: c.$white;
+					color: c.$dark-blue;
+					font-size: 1.2rem;
+					cursor: pointer;
+					transition: color 0.3s, background-color 0.3s;
+				}
+
+				.button:hover {
+					background-color: c.$blue;
+					color: c.$white;
+				}
+			}
+		}
+		&-cards {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: row;
+			&-drawing-board,
+			&-answer-board {
+				background-color: c.$white;
+				width: 35%;
+				height: 75vh;
+				border-radius: 0.5em;
+				margin: 0.5em;
+			}
+
+			&-answer-board {
+				background-color: c.$dark-blue;
+			}
+
+			.button-answer {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				margin: 2em;
+				width: 60px;
+				height: 60px;
+				border: none;
+				border-radius: 50%;
+				color: c.$white;
+				span {
+					font-size: 2rem;
+				}
+			}
+
+			.wrong-answer {
+				background-color: #c92f2f;
+				border: 2px solid #da3a3a;
+				transition: background-color 0.3s, scale 0.3s;
+				cursor: pointer;
+				box-shadow: 0 0 10px 1px #b81e1e;
+			}
+
+			.wrong-answer:hover {
+				background-color: #b81e1e;
+				scale: 1.1;
+			}
+			.good-answer {
+				background-color: #008000;
+				border: 2px solid #009000;
+				transition: background-color 0.3s, scale 0.3s;
+				cursor: pointer;
+				box-shadow: 0 0 10px 1px #007000;
+			}
+
+			.good-answer:hover {
+				background-color: #007000;
+				scale: 1.1;
+			}
+		}
+
+		.top-page {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: c.$dark-blue;
+			border-radius: 0.5em;
+			padding: 1em;
+			min-width: 80%;
+			min-height: 100px;
+			.logo {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				min-height: 100px;
+				margin-right: 1em;
+				padding: 0 1em;
+				border-right: 2px dotted c.$white;
+			}
+
+			.mainDraw_container-task-content {
+				text-align: center;
+				color: c.$white;
+				border-radius: 0.5em;
+				padding: 0.5em;
+				.title {
+					margin-bottom: 0.3em;
+					font-weight: bold;
+				}
 			}
 		}
 	}
