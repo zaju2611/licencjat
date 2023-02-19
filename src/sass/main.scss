@@ -672,8 +672,8 @@ a {
 				align-items: center;
 				flex-direction: column;
 				min-height: 475px;
-				width: 350px;
-				padding: 1em;
+				width: 31%;
+				padding: 0.5em;
 				margin-bottom: 1.5em;
 				background-color: c.$white;
 				color: c.$dark-blue;
@@ -688,7 +688,7 @@ a {
 				}
 				img {
 					text-align: center;
-					width: 100%;
+					width: 90%;
 					height: 200px;
 				}
 				&-formulas {
