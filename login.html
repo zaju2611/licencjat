@@ -52,9 +52,10 @@
                     </a>
                 </div>
                 <div class="nav_container-list">
-                    <a href="#" class="nav_container-list-item">Wzory</a>
+                    <a href="formulas.html" class="nav_container-list-item">Wzory</a>
                     <a href="contact.html" class="nav_container-list-item">Kontakt</a>
-                    <a href="login.html" class="nav_container-list-item">Zaloguj się</a>
+                    <a href="login.html" class="nav_container-list-item sign-in">Zaloguj się</a>
+                    <a href="index.html" class="nav_container-list-item sign-out">Wyloguj sie</a>
                 </div>
             </div>
         </div>
@@ -125,6 +126,8 @@
         const error = document.querySelector('.error-text');
         const closeBtn = document.querySelector(".close");
         const popup = document.querySelector('.popup');
+        const signin = document.querySelector('.sign-in');
+        const signout = document.querySelector('.sign-out');
 
 
         const showErr = (input, msg) => {
@@ -149,6 +152,9 @@
                         email.value = "";
                         password.value = "";
                         error.style.visibility = "hidden";
+                        signin.style.display = 'none';
+                        signout.style.display = 'inline';
+
                     })
                         .catch((error) => {
                             alert("error " + error);

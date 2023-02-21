@@ -19,3 +19,44 @@
 		left: 0%;
 	}
 }
+
+@keyframes d-anim {
+	from {
+		transform: translate(-50%, -50%);
+		width: 70%;
+	}
+	to {
+		transform: translate(-102%, -50%);
+		width: 50%;
+	}
+}
+
+@keyframes a-anim {
+	from {
+		transform: translate(-50%, -50%);
+		width: 70%;
+	}
+	to {
+		transform: translate(2%, -50%);
+		width: 50%;
+	}
+}
+@keyframes grow {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes b-anim {
+	from {
+		opacity: 0;
+		scale: 0.5;
+	}
+	to {
+		opacity: 1;
+		scale: 1;
+	}
+}

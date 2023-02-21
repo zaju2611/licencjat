@@ -56,17 +56,28 @@ a {
 				transition: color 0.3s;
 			}
 
+			.sign-out {
+				display: none;
+			}
+			.sign-in {
+				display: inline;
+			}
+
 			&-item:hover {
 				color: c.$light-blue;
 			}
+		}
+
+		&-logo {
+			margin-left: 1em;
 		}
 	}
 }
 
 .header {
+	min-height: 25em;
 	.hero-img {
 		position: relative;
-		height: 25em;
 		background-image: url("../img/shadow.jpg");
 		background-size: cover;
 		background-attachment: fixed;
@@ -80,6 +91,7 @@ a {
 		z-index: -10;
 	}
 	.hero-text {
+		padding: 2em;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -119,13 +131,20 @@ a {
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
+
 		padding: 3em;
 		&-h1 {
 			font-size: 4.2rem;
 			color: c.$dark-blue;
 			margin-bottom: 0.5em;
+			text-align: center;
 		}
 		&-buttons {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			flex-direction: row;
+			flex-wrap: wrap;
 			padding-bottom: 2em;
 			&-a {
 				&-button {
@@ -135,8 +154,8 @@ a {
 					background-color: c.$light-blue;
 					border-radius: 2em;
 					border: none;
-					transition: background-color 0.3s, color 0.3s;
-
+					transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+					box-shadow: c.$light-blue 0px 4px 16px, c.$light-blue 0px 8px 32px;
 					cursor: pointer;
 
 					.icon {
@@ -145,16 +164,19 @@ a {
 						margin-bottom: 0.3em;
 					}
 					.text {
-						font-size: 2rem;
+						font-weight: bold;
+						font-size: 2.5rem;
 						padding: 0.5em;
-						color: c.$dark-blue;
+						color: c.$white;
+						text-shadow: 2px 2px 5px c.$dark-blue;
 					}
 				}
 				&-button:hover {
 					background-color: c.$dark-blue;
+					box-shadow: c.$dark-blue 0px 4px 16px, c.$dark-blue 0px 8px 32px;
 
 					.text {
-						color: c.$light-blue;
+						color: c.$white;
 					}
 				}
 			}
@@ -555,22 +577,42 @@ a {
 			}
 		}
 		&-cards {
-			width: 100%;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			flex-direction: row;
-			&-drawing-board,
-			&-answer-board {
-				background-color: c.$white;
-				width: 35%;
-				height: 75vh;
-				border-radius: 0.5em;
-				margin: 0.5em;
-			}
+			width: 100%;
 
-			&-answer-board {
-				background-color: c.$dark-blue;
+			&-container {
+				position: relative;
+				width: 70%;
+				height: 75vh;
+				margin: 0.5em;
+				&-drawing-board,
+				&-answer-board {
+					position: absolute;
+					background-color: c.$white;
+					width: 70%;
+					height: 100%;
+					left: 50%;
+					top: 50%;
+					transform: translate(-50%, -50%);
+					border-radius: 1em;
+					border: none;
+					z-index: 10;
+				}
+				&-answer-board {
+					background-color: c.$dark-blue;
+					opacity: 0;
+					z-index: 5;
+				}
+				.d-active {
+					animation: d-anim 1s linear forwards;
+				}
+
+				.a-active {
+					animation: a-anim 1s linear forwards, grow 0.9s 0.8s linear forwards;
+				}
 			}
 
 			.button-answer {
@@ -578,40 +620,44 @@ a {
 				justify-content: center;
 				align-items: center;
 				flex-direction: column;
-				margin: 2em;
-				width: 60px;
-				height: 60px;
+				margin: 4em;
+				width: 80px;
+				height: 80px;
 				border: none;
 				border-radius: 50%;
 				color: c.$white;
+				opacity: 0;
+				font-size: 1.5rem;
 				span {
-					font-size: 2rem;
+					font-size: 2.5rem;
 				}
+			}
+
+			.b-active {
+				animation: b-anim 0.5s 0.5s linear forwards;
+				cursor: pointer;
 			}
 
 			.wrong-answer {
 				background-color: #c92f2f;
-				border: 2px solid #da3a3a;
-				transition: background-color 0.3s, scale 0.3s;
-				cursor: pointer;
-				box-shadow: 0 0 10px 1px #b81e1e;
+				border: none;
+				box-shadow: 0 0 10px 2px #b81e1e;
+				transition: background-color 0.3s;
 			}
 
 			.wrong-answer:hover {
 				background-color: #b81e1e;
-				scale: 1.1;
 			}
 			.good-answer {
 				background-color: #008000;
-				border: 2px solid #009000;
+				border: none;
+				box-shadow: 0 0 10px 2px #007000;
 				transition: background-color 0.3s, scale 0.3s;
-				cursor: pointer;
-				box-shadow: 0 0 10px 1px #007000;
 			}
 
 			.good-answer:hover {
 				background-color: #007000;
-				scale: 1.1;
+				scale: 1.5;
 			}
 		}
 
@@ -707,6 +753,57 @@ a {
 			&_card:hover {
 				scale: 1.2;
 			}
+		}
+	}
+}
+
+.mainScore {
+	&_container {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		flex-wrap: wrap;
+		min-height: 90vh;
+		&-card {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			min-height: 300px;
+			min-width: 350px;
+			border: 2px solid c.$dark-blue;
+			border-radius: 0.5em;
+			margin: 1em;
+			background-color: c.$light-blue;
+			transition: scale 0.3s;
+
+			.icon {
+				font-size: 6rem;
+				color: c.$white;
+				text-shadow: 0 0 20px c.$dark-blue;
+				margin-bottom: 0.5em;
+			}
+			.title {
+				font-size: 3rem;
+				margin: 0.3em 0;
+				color: c.$white;
+				text-shadow: 2px 2px 5px c.$dark-blue;
+			}
+			.best_score {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 2.3rem;
+				color: c.$blue;
+				.score {
+					font-size: 2.8rem;
+					font-weight: bold;
+					color: c.$dark-blue;
+				}
+			}
+		}
+		&-card:hover {
+			scale: 1.2;
 		}
 	}
 }
