@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>geoDraw</title>
+    <!-- @include 'links.kit' -->
+</head>
+
+<body>
+    <!-- @include 'nav.kit' -->
+
+    <main class="mainLogin">
+        <div class="wrapper">
+            <div class="mainLogin_container">
+                <h1 class="mainLogin_container-h1">Zaloguj się!</h1>
+                <form class="mainLogin_container-form">
+                    <div class="mainLogin_container-form-box">
+                        <label for="mail">Email:</label>
+                        <input type="email" id="mail" placeholder="Podaj nazwę użytkownika">
+                        <p class="error-text">error</p>
+                    </div>
+
+                    <div class="mainLogin_container-form-box">
+                        <label for="password">Hasło:</label>
+                        <input type="password" id="password" placeholder="Podaj hasło" class="passwordError">
+
+                    </div>
+
+                    <div class="mainLogin_container-form-buttons">
+                        <button class="login">Zaloguj</button>
+                    </div>
+
+                    <div class="mainLogin_container-form-text">
+                        <p class="textRegister">Nie masz jeszcze konta? <a href="register.html">Zarejestruj się!</a></p>
+                    </div>
+
+                    <div class="popup">
+                        <p>Użytkownik zalogowany pomyślnie !</p>
+                        <button class="close">Zamknij</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- @include 'footer.kit' -->
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+        import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyAhj6kkaS_fMvLOwL-J4SXJ_DWSwejBmlo",
+            authDomain: "licencjat-2a013.firebaseapp.com",
+            databaseURL: "https://licencjat-2a013-default-rtdb.firebaseio.com",
+            projectId: "licencjat-2a013",
+            storageBucket: "licencjat-2a013.appspot.com",
+            messagingSenderId: "676690164407",
+            appId: "1:676690164407:web:b234c74f6f771f59a1ab32"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const auth = getAuth();
+
+        const password = document.querySelector("#password");
+        const email = document.querySelector("#mail");
+        const sendBtn = document.querySelector(".login");
+        const error = document.querySelector('.error-text');
+        const closeBtn = document.querySelector(".close");
+        const popup = document.querySelector('.popup');
+        const signin = document.querySelector('.sign-in');
+        const signout = document.querySelector('.sign-out');
+
+
+        const showErr = (input, msg) => {
+            const formBox = input.parentElement;
+            const errorMsg = formBox.querySelector(".error-text");
+            formBox.classList.add("error");
+            errorMsg.textContent = msg;
+        };
+
+        sendBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            signInWithEmailAndPassword(auth, email.value, password.value)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    const lgDate = new Date();
+                    // ...
+                    update(ref(db, 'users/' + user.uid), {
+                        last_login: lgDate
+                    }).then(() => {
+                        popup.classList.add('show-popup');
+                        email.value = "";
+                        password.value = "";
+                        error.style.visibility = "hidden";
+                        signin.style.display = 'none';
+                        signout.style.display = 'inline';
+
+                    })
+                        .catch((error) => {
+                            alert("error " + error);
+                        });
+                })
+                .catch((error) => {
+                    showErr(email, "Użytkownik nie istnieje")
+                });
+        });
+
+        closeBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            location.href = "http://localhost:3000/index.html";
+        });
+
+    </script>
+    <script src="./dist/js/main.min.js"></script>
+</body>
+
+</html>

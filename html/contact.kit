@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>geoDraw</title>
+    <!-- @include 'links.kit' -->
+</head>
+
+<body>
+    <!-- @include 'nav.kit' -->
+
+    <main class="mainContact">
+        <section class="mainContact_section">
+            <div class="wrapper">
+                <div class="mainContact_section-container">
+                    <h1 class="mainContact_section-container-h1">
+                        Skontaktuj się z nami
+                    </h1>
+                    <form class="mainContact_section-container-form"
+                        action="https://formsubmit.co/aca2645e5f55decb3c3fc36eac63e1bb" method="POST">
+                        <input type="hidden" name="_next" value="http://localhost:3000/thanks.html">
+                        <input class="input name" type="text" name="name" placeholder="Imię i Nazwisko" required>
+                        <input class="input email" type="email" name="email" placeholder="Email" required>
+                        <input type="hidden" name="_captcha" value="false">
+                        <textarea class="input textarea" name="message" placeholder="Wiadomość" required></textarea>
+                        <button class="send" type="submit">Wyślij</button>
+                    </form>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- @include 'footer.kit' -->
+
+    <script src="./dist/js/main.min.js"></script>
+</body>
+
+</html>

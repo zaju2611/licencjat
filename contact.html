@@ -7,57 +7,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>geoDraw</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;600;700&family=Tourney:ital,wght@1,200;1,400&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="./dist/css/main.css">
-    <script src="https://kit.fontawesome.com/7e5f0f75ea.js" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;600;700&family=Tourney:ital,wght@1,200;1,400&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" href="./dist/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.1.96/css/materialdesignicons.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"
+    integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://kit.fontawesome.com/7e5f0f75ea.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <nav class="nav">
-        <div class="wrapper">
-            <div class="nav_container">
-                <div class="nav_container-logo">
-                    <a href="index.html">
-                        <svg width="210" height="52" viewBox="0 0 210 52" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <g style="mix-blend-mode:hard-light" filter="url(#filter0_b_0_1)">
-                                <path
-                                    d="M1 20.0299L13.6496 1M1 20.0299V51M1 20.0299H13.8077H26.6154M13.6496 1H38M13.6496 1V33.8358M38 1L26.6154 20.0299M38 1V33.8358M26.6154 20.0299V51M1 51H26.6154M1 51L13.6496 33.8358M26.6154 51L38 33.8358M38 33.8358H13.6496"
-                                    stroke="white" />
-                            </g>
+    <div class="wrapper">
+        <div class="nav_container">
+            <div class="nav_container-logo">
+                <a href="index.html">
+                    <svg width="210" height="52" viewBox="0 0 210 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g style="mix-blend-mode:hard-light" filter="url(#filter0_b_0_1)">
                             <path
-                                d="M51.88 46.2V41.124H61.996L63.454 39.666V38.64L63.094 39H54.688L50.98 35.292V23.268L54.688 19.56H64.822L68.53 23.268V42.492L64.822 46.2H51.88ZM52.672 45.444H64.39L67.756 42.042V23.646L64.444 20.316H55.048L51.772 23.628V34.878L55.084 38.208H62.842L64.264 36.786V40.008L62.338 41.916H52.672V45.444ZM56.866 34.698L55.282 33.114V25.374L56.83 23.826H62.698L64.264 25.392V32.394L61.942 34.698H56.866ZM57.172 33.906H61.654L63.454 32.106V25.734L62.338 24.636H57.172L56.074 25.734V32.808L57.172 33.906ZM87.6629 19.56L91.3709 23.268V28.398L87.6629 32.106H77.8709V32.808L78.9689 33.906H91.1189V39H76.4849L72.7769 35.292V23.268L76.4849 19.56H87.6629ZM85.5389 23.862L87.0689 25.392V26.76L85.8629 27.984H77.0429V25.428L78.6089 23.862H85.5389ZM87.2849 20.352H76.8449L73.5329 23.664V34.932L76.8269 38.226H90.2909V34.716H78.5909L77.0429 33.168V31.35H87.3209L90.5789 28.074V23.628L87.2849 20.352ZM85.1789 24.654H78.9689L77.8709 25.752V27.192H85.5389L86.2949 26.436V25.752L85.1789 24.654ZM99.0552 39L95.3472 35.292V23.268L99.0552 19.56H110.305L114.013 23.268V35.292L110.305 39H99.0552ZM99.4692 38.208H109.927L113.221 34.932V23.628L109.927 20.352H99.4332L96.1392 23.646V34.896L99.4692 38.208ZM101.233 34.698L99.6672 33.132V25.392L101.197 23.862H108.163L109.711 25.392V33.168L108.163 34.698H101.233ZM101.539 33.906H107.821L108.919 32.808V25.752L107.821 24.654H101.539L100.441 25.752V32.808L101.539 33.906Z"
-                                fill="white" />
-                            <path
-                                d="M118.258 39V13.8H133.252L136.96 17.508V35.292L133.252 39H118.258ZM123.352 33.906H130.786L131.884 32.808V19.992L130.786 18.894H123.352V33.906ZM120.274 37.02H132.208L134.926 34.284V18.552L132.208 15.816H120.274V37.02ZM121.39 35.904V16.932H131.704L133.828 19.02V33.816L131.704 35.904H121.39ZM141.191 39V33.924H144.683V24.906L144.413 24.636H141.227V19.56H145.781L147.005 21L148.391 19.56H155.393L159.335 23.502L155.411 27.318L152.927 24.654H150.875L149.777 25.752V33.942H153.269V39H141.191ZM143.045 37.02H151.415V35.904H147.779V24.582L149.651 22.71H154.115L155.699 24.474L156.545 23.682L154.619 21.612H149.165L147.167 23.61L145.331 21.612H143.045V22.71H145.007L146.663 24.528V35.904H143.045V37.02ZM165.571 39L161.863 35.292V30.162L165.571 26.454H175.363V25.752L174.265 24.654H162.115V19.56H176.749L180.457 23.268V35.292L176.749 39H165.571ZM167.137 35.922L164.977 33.798V31.35L166.903 29.442H177.523V33.654L175.219 35.922H167.137ZM166.633 37.038H175.723L178.639 34.122V24.312L175.849 21.522H164.221V22.638H175.345L177.523 24.78V28.362H166.489L163.879 30.936V34.266L166.633 37.038ZM168.055 33.906H174.265L175.363 32.808V31.368H167.695L166.939 32.124V32.808L168.055 33.906ZM184.433 19.56H189.527V32.808L190.625 33.906H193.325L194.423 32.808V20.64H199.517V32.808L200.615 33.906H203.315L204.413 32.808V19.56H209.507V35.292L205.799 39H198.833L196.979 37.164L195.107 39H188.141L184.433 35.292V19.56ZM186.431 21.522V34.302L189.221 37.092H194.477L196.979 34.59L199.481 37.092H204.737L207.527 34.302V21.522H206.411V33.834L204.233 35.976H199.859L197.537 33.672V22.458H196.421V33.672L194.099 35.976H189.725L187.547 33.834V21.522H186.431Z"
-                                fill="#97188B" />
-                            <defs>
-                                <filter id="filter0_b_0_1" x="-3.5" y="-3.5" width="46" height="59"
-                                    filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                                    <feGaussianBlur in="BackgroundImageFix" stdDeviation="2" />
-                                    <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_0_1" />
-                                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_0_1"
-                                        result="shape" />
-                                </filter>
-                            </defs>
-                        </svg>
+                                d="M1 20.0299L13.6496 1M1 20.0299V51M1 20.0299H13.8077H26.6154M13.6496 1H38M13.6496 1V33.8358M38 1L26.6154 20.0299M38 1V33.8358M26.6154 20.0299V51M1 51H26.6154M1 51L13.6496 33.8358M26.6154 51L38 33.8358M38 33.8358H13.6496"
+                                stroke="white" />
+                        </g>
+                        <path
+                            d="M51.88 46.2V41.124H61.996L63.454 39.666V38.64L63.094 39H54.688L50.98 35.292V23.268L54.688 19.56H64.822L68.53 23.268V42.492L64.822 46.2H51.88ZM52.672 45.444H64.39L67.756 42.042V23.646L64.444 20.316H55.048L51.772 23.628V34.878L55.084 38.208H62.842L64.264 36.786V40.008L62.338 41.916H52.672V45.444ZM56.866 34.698L55.282 33.114V25.374L56.83 23.826H62.698L64.264 25.392V32.394L61.942 34.698H56.866ZM57.172 33.906H61.654L63.454 32.106V25.734L62.338 24.636H57.172L56.074 25.734V32.808L57.172 33.906ZM87.6629 19.56L91.3709 23.268V28.398L87.6629 32.106H77.8709V32.808L78.9689 33.906H91.1189V39H76.4849L72.7769 35.292V23.268L76.4849 19.56H87.6629ZM85.5389 23.862L87.0689 25.392V26.76L85.8629 27.984H77.0429V25.428L78.6089 23.862H85.5389ZM87.2849 20.352H76.8449L73.5329 23.664V34.932L76.8269 38.226H90.2909V34.716H78.5909L77.0429 33.168V31.35H87.3209L90.5789 28.074V23.628L87.2849 20.352ZM85.1789 24.654H78.9689L77.8709 25.752V27.192H85.5389L86.2949 26.436V25.752L85.1789 24.654ZM99.0552 39L95.3472 35.292V23.268L99.0552 19.56H110.305L114.013 23.268V35.292L110.305 39H99.0552ZM99.4692 38.208H109.927L113.221 34.932V23.628L109.927 20.352H99.4332L96.1392 23.646V34.896L99.4692 38.208ZM101.233 34.698L99.6672 33.132V25.392L101.197 23.862H108.163L109.711 25.392V33.168L108.163 34.698H101.233ZM101.539 33.906H107.821L108.919 32.808V25.752L107.821 24.654H101.539L100.441 25.752V32.808L101.539 33.906Z"
+                            fill="white" />
+                        <path
+                            d="M118.258 39V13.8H133.252L136.96 17.508V35.292L133.252 39H118.258ZM123.352 33.906H130.786L131.884 32.808V19.992L130.786 18.894H123.352V33.906ZM120.274 37.02H132.208L134.926 34.284V18.552L132.208 15.816H120.274V37.02ZM121.39 35.904V16.932H131.704L133.828 19.02V33.816L131.704 35.904H121.39ZM141.191 39V33.924H144.683V24.906L144.413 24.636H141.227V19.56H145.781L147.005 21L148.391 19.56H155.393L159.335 23.502L155.411 27.318L152.927 24.654H150.875L149.777 25.752V33.942H153.269V39H141.191ZM143.045 37.02H151.415V35.904H147.779V24.582L149.651 22.71H154.115L155.699 24.474L156.545 23.682L154.619 21.612H149.165L147.167 23.61L145.331 21.612H143.045V22.71H145.007L146.663 24.528V35.904H143.045V37.02ZM165.571 39L161.863 35.292V30.162L165.571 26.454H175.363V25.752L174.265 24.654H162.115V19.56H176.749L180.457 23.268V35.292L176.749 39H165.571ZM167.137 35.922L164.977 33.798V31.35L166.903 29.442H177.523V33.654L175.219 35.922H167.137ZM166.633 37.038H175.723L178.639 34.122V24.312L175.849 21.522H164.221V22.638H175.345L177.523 24.78V28.362H166.489L163.879 30.936V34.266L166.633 37.038ZM168.055 33.906H174.265L175.363 32.808V31.368H167.695L166.939 32.124V32.808L168.055 33.906ZM184.433 19.56H189.527V32.808L190.625 33.906H193.325L194.423 32.808V20.64H199.517V32.808L200.615 33.906H203.315L204.413 32.808V19.56H209.507V35.292L205.799 39H198.833L196.979 37.164L195.107 39H188.141L184.433 35.292V19.56ZM186.431 21.522V34.302L189.221 37.092H194.477L196.979 34.59L199.481 37.092H204.737L207.527 34.302V21.522H206.411V33.834L204.233 35.976H199.859L197.537 33.672V22.458H196.421V33.672L194.099 35.976H189.725L187.547 33.834V21.522H186.431Z"
+                            fill="#97188B" />
+                        <defs>
+                            <filter id="filter0_b_0_1" x="-3.5" y="-3.5" width="46" height="59"
+                                filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                <feGaussianBlur in="BackgroundImageFix" stdDeviation="2" />
+                                <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_0_1" />
+                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_0_1"
+                                    result="shape" />
+                            </filter>
+                        </defs>
+                    </svg>
 
-                    </a>
-                </div>
-                <div class="nav_container-list">
-                    <a href="formulas.html" class="nav_container-list-item">Wzory</a>
-                    <a href="contact.html" class="nav_container-list-item">Kontakt</a>
-                    <a href="login.html" class="nav_container-list-item sign-in">Zaloguj się</a>
-                    <a href="index.html" class="nav_container-list-item sign-out">Wyloguj sie</a>
-                </div>
+                </a>
+            </div>
+            <div class="nav_container-list">
+                <a href="formulas.html" class="nav_container-list-item">Wzory</a>
+                <a href="contact.html" class="nav_container-list-item">Kontakt</a>
+                <a href="bestScore.html" class="nav_container-list-item">Twoje wyniki</a>
+                <a href="login.html" class="nav_container-list-item sign-in">Zaloguj się</a>
+                <a href="index.html" class="nav_container-list-item sign-out">Wyloguj sie</a>
             </div>
         </div>
-    </nav>
-
+    </div>
+</nav>
 
     <main class="mainContact">
         <section class="mainContact_section">
@@ -82,12 +85,13 @@
     </main>
 
     <footer class="footer">
-        <div class="wrapper">
-            <div class="footer_container">
-                <p class="footer_container-text">&copy; <span class="footer_year"></span> geoDraw</p>
-            </div>
+    <div class="wrapper">
+        <div class="footer_container">
+            <p class="footer_container-text">&copy; <span class="footer_year"></span> geoDraw</p>
         </div>
-    </footer>
+    </div>
+</footer>
+
     <script src="./dist/js/main.min.js"></script>
 </body>
 
