@@ -7,16 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>geoDraw</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-    href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;600;700&family=Tourney:ital,wght@1,200;1,400&display=swap"
-    rel="stylesheet">
-<link rel="stylesheet" href="./dist/css/main.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.1.96/css/materialdesignicons.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"
-    integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://kit.fontawesome.com/7e5f0f75ea.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;600;700&family=Tourney:ital,wght@1,200;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./dist/css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.1.96/css/materialdesignicons.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"
+        integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://kit.fontawesome.com/7e5f0f75ea.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -77,61 +77,64 @@
                         <div class="row">
                             <label class="title">Figury</label>
                             <ul class="options">
-                                <li class="option">
+                                <li class="option tool" id="rectangle">
                                     <span class="mdi mdi-checkbox-blank-outline icon"></span>
                                     <span>Prostokąt</span>
                                 </li>
-                                <li class="option">
+                                <li class="option tool" id="circle">
                                     <span class="mdi mdi-checkbox-blank-circle-outline icon"></span>
                                     <span>Koło</span>
                                 </li>
-                                <li class="option">
+                                <li class="option tool" id="triangle">
                                     <span class="mdi mdi-triangle-outline icon"></span>
                                     <span>Trójkąt</span>
                                 </li>
                                 <li class="option">
                                     <input type="checkbox" id="fill-color">
-                                    <label class="fill-color" for="fill-color">Kolor wypełnienia</label>
+                                    <label class="fill-color" for="fill-color">Wypełnienie</label>
                                 </li>
                             </ul>
                         </div>
                         <div class="row">
                             <label class="title">Opcje</label>
                             <ul class="options">
-                                <li class="option">
+                                <li class="option tool active" id="brush">
                                     <span class="mdi mdi-brush icon"></span>
                                     <span>Pędzel</span>
                                 </li>
-                                <li class="option active">
+                                <li class="option tool " id="line">
                                     <span class="mdi mdi-vector-line icon"></span>
                                     <span>Linia</span>
                                 </li>
-                                <li class="option">
+                                <li class="option tool" id="eraser">
                                     <span class="mdi mdi-eraser icon"></span>
                                     <span>Gumka</span>
                                 </li>
-                                <li class="option">
-                                    <input type="range" id="size-slider">
+                                <li class="option ">
+                                    <input type="range" min="1" max="50" step=".1" id="size-slider">
                                 </li>
                             </ul>
                         </div>
                         <div class="row colors">
                             <label class="title">Kolory</label>
                             <ul class="options">
-                                <li class="option">
+                                <li class="option selected">
                                 </li>
                                 <li class="option">
                                 </li>
                                 <li class="option">
                                 </li>
                                 <li class="option">
+                                </li>
+                                <li class="option setColor">
+                                    <input type="color" id="color-picker" value="#fff">
                                 </li>
                             </ul>
                         </div>
                         <div class="row buttons">
                             <button class="button clear-canvas">Wyczyść</button>
                             <button class="button check-answer">Sprawdź</button>
-                            <button class="button next-round">Następna runda</button>
+
                         </div>
                     </section>
                 </div>
@@ -142,7 +145,9 @@
 
 
                     <div class="mainDraw_container-cards-container">
-                        <div class="mainDraw_container-cards-container-drawing-board"></div>
+                        <div class="mainDraw_container-cards-container-drawing-board">
+                            <canvas class="canvas"></canvas>
+                        </div>
                         <div class="mainDraw_container-cards-container-answer-board"></div>
                     </div>
 
@@ -154,14 +159,15 @@
     </main>
 
     <footer class="footer">
-    <div class="wrapper">
-        <div class="footer_container">
-            <p class="footer_container-text">&copy; <span class="footer_year"></span> geoDraw</p>
+        <div class="wrapper">
+            <div class="footer_container">
+                <p class="footer_container-text">&copy; <span class="footer_year"></span> geoDraw</p>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
     <script src="./dist/js/main.js"></script>
+    <script src="./dist/js/draw.js"></script>
 </body>
 
 </html>
