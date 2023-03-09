@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>geoDraw</title>
+
     <!-- @include 'links.kit' -->
 </head>
 
@@ -56,7 +57,7 @@
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+        import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
         import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
         const firebaseConfig = {
             apiKey: "AIzaSyAhj6kkaS_fMvLOwL-J4SXJ_DWSwejBmlo",
@@ -197,12 +198,25 @@
             checkErrors();
         });
 
+        signout.addEventListener("click", (e) => {
+            e.preventDefault();
+            signOut(auth)
+                .then(() => {
+                    sessionStorage.removeItem("user");
+                    location.href = "http://localhost:3000/index.html";
+                })
+                .catch((error) => {
+                    alert("błąd przy wylogowywaniu");
+                });
+        });
         closeBtn.addEventListener("click", (e) => {
             e.preventDefault();
-            location.href = "http://localhost:3000/login.html";
+            location.href = "http://localhost:3000/index.html";
         });
 
     </script>
+
+    <script src="../dist/js/checkUser.js"></script>
     <script src="./dist/js/main.min.js"></script>
 </body>
 

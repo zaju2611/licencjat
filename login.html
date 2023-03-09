@@ -54,7 +54,7 @@
             <div class="nav_container-list">
                 <a href="formulas.html" class="nav_container-list-item">Wzory</a>
                 <a href="contact.html" class="nav_container-list-item">Kontakt</a>
-                <a href="bestScore.html" class="nav_container-list-item">Twoje wyniki</a>
+                <a href="bestScore.html" class="nav_container-list-item results">Twoje wyniki</a>
                 <a href="login.html" class="nav_container-list-item sign-in">Zaloguj się</a>
                 <a href="index.html" class="nav_container-list-item sign-out">Wyloguj sie</a>
             </div>
@@ -87,10 +87,7 @@
                         <p class="textRegister">Nie masz jeszcze konta? <a href="register.html">Zarejestruj się!</a></p>
                     </div>
 
-                    <div class="popup">
-                        <p>Użytkownik zalogowany pomyślnie !</p>
-                        <button class="close">Zamknij</button>
-                    </div>
+
                 </form>
             </div>
         </div>
@@ -106,7 +103,7 @@
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+        import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
         import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
         const firebaseConfig = {
             apiKey: "AIzaSyAhj6kkaS_fMvLOwL-J4SXJ_DWSwejBmlo",
@@ -127,10 +124,9 @@
         const sendBtn = document.querySelector(".login");
         const error = document.querySelector('.error-text');
         const closeBtn = document.querySelector(".close");
-        const popup = document.querySelector('.popup');
         const signin = document.querySelector('.sign-in');
         const signout = document.querySelector('.sign-out');
-
+        const results = document.querySelector('.results');
 
         const showErr = (input, msg) => {
             const formBox = input.parentElement;
@@ -150,12 +146,12 @@
                     update(ref(db, 'users/' + user.uid), {
                         last_login: lgDate
                     }).then(() => {
-                        popup.classList.add('show-popup');
+
                         email.value = "";
                         password.value = "";
                         error.style.visibility = "hidden";
-                        signin.style.display = 'none';
-                        signout.style.display = 'inline';
+                        sessionStorage.setItem('user', JSON.stringify(user));
+                        location.href = "http://localhost:3000/index.html";
 
                     })
                         .catch((error) => {
@@ -167,12 +163,20 @@
                 });
         });
 
-        closeBtn.addEventListener("click", (e) => {
+        signout.addEventListener("click", (e) => {
             e.preventDefault();
-            location.href = "http://localhost:3000/index.html";
+            signOut(auth)
+                .then(() => {
+                    sessionStorage.removeItem("user");
+                    location.href = "http://localhost:3000/index.html";
+                })
+                .catch((error) => {
+                    alert("błąd przy wylogowywaniu");
+                });
         });
-
     </script>
+
+    <script src="../dist/js/checkUser.js"></script>
     <script src="./dist/js/main.min.js"></script>
 </body>
 

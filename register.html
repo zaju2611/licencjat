@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>geoDraw</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -54,7 +55,7 @@
             <div class="nav_container-list">
                 <a href="formulas.html" class="nav_container-list-item">Wzory</a>
                 <a href="contact.html" class="nav_container-list-item">Kontakt</a>
-                <a href="bestScore.html" class="nav_container-list-item">Twoje wyniki</a>
+                <a href="bestScore.html" class="nav_container-list-item results">Twoje wyniki</a>
                 <a href="login.html" class="nav_container-list-item sign-in">Zaloguj się</a>
                 <a href="index.html" class="nav_container-list-item sign-out">Wyloguj sie</a>
             </div>
@@ -112,7 +113,7 @@
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+        import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
         import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
         const firebaseConfig = {
             apiKey: "AIzaSyAhj6kkaS_fMvLOwL-J4SXJ_DWSwejBmlo",
@@ -253,12 +254,25 @@
             checkErrors();
         });
 
+        signout.addEventListener("click", (e) => {
+            e.preventDefault();
+            signOut(auth)
+                .then(() => {
+                    sessionStorage.removeItem("user");
+                    location.href = "http://localhost:3000/index.html";
+                })
+                .catch((error) => {
+                    alert("błąd przy wylogowywaniu");
+                });
+        });
         closeBtn.addEventListener("click", (e) => {
             e.preventDefault();
-            location.href = "http://localhost:3000/login.html";
+            location.href = "http://localhost:3000/index.html";
         });
 
     </script>
+
+    <script src="../dist/js/checkUser.js"></script>
     <script src="./dist/js/main.min.js"></script>
 </body>
 
