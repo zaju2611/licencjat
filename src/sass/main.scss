@@ -463,7 +463,7 @@ a {
 		flex-wrap: wrap;
 		width: 100%;
 		gap: 1em;
-		padding: 1em;
+		padding: 0.5em;
 		.middle-page {
 			display: flex;
 			justify-content: center;
@@ -502,7 +502,7 @@ a {
 
 			background-color: c.$dark-blue;
 			.row {
-				padding: 0 2em;
+				padding: 0 1em;
 				.title {
 					font-size: 2rem;
 					color: c.$white;
@@ -608,16 +608,18 @@ a {
 				flex-direction: column;
 				justify-content: center;
 				align-items: center;
+				margin-left: 0.5em;
 
 				.button {
-					width: 9em;
-					padding: 0.5em;
-					margin: 0.5em;
+					width: 8em;
+					padding: 0.3em;
+					margin-bottom: 0.5em;
+					margin-top: 0.5em;
 					border: none;
 					border-radius: 0.5em;
 					background-color: c.$white;
 					color: c.$dark-blue;
-					font-size: 1.2rem;
+					font-size: 1.5rem;
 					cursor: pointer;
 					transition: color 0.3s, background-color 0.3s;
 				}
