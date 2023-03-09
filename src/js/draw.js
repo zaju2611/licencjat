@@ -7,6 +7,14 @@ const fillColor = document.querySelector("#fill-color");
 const sizeSlider = document.querySelector("#size-slider");
 const colorsBtns = document.querySelectorAll(".colors .option");
 const clearCanvas = document.querySelector(".clear-canvas");
+const answerCard = document.querySelector(
+	".mainDraw_container-cards-container-answer-board"
+);
+const drawingCard = document.querySelector(
+	".mainDraw_container-cards-container-drawing-board"
+);
+const checkBtn = document.querySelector(".check-answer");
+const answerBtns = document.querySelectorAll(".button-answer");
 let isDrawing = false;
 let brushWidth = 5;
 let selectedTool = "brush";
@@ -148,6 +156,14 @@ colorsBtns.forEach((btn) => {
 
 clearCanvas.addEventListener("click", () => {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
+});
+
+checkBtn.addEventListener("click", () => {
+	answerCard.classList.toggle("a-active");
+	drawingCard.classList.toggle("d-active");
+	answerBtns.forEach((element) => {
+		element.classList.toggle("b-active");
+	});
 });
 
 canvas.addEventListener("mousedown", startDraw);

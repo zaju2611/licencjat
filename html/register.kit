@@ -57,7 +57,7 @@
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+        import { getAuth, createUserWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
         import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
         const firebaseConfig = {
             apiKey: "AIzaSyAhj6kkaS_fMvLOwL-J4SXJ_DWSwejBmlo",
@@ -211,13 +211,13 @@
         });
         closeBtn.addEventListener("click", (e) => {
             e.preventDefault();
-            location.href = "http://localhost:3000/index.html";
+            location.href = "http://localhost:3000/login.html";
         });
 
     </script>
 
     <script src="../dist/js/checkUser.js"></script>
-    <script src="./dist/js/main.min.js"></script>
+    <script src="./dist/js/main.js"></script>
 </body>
 
 </html>

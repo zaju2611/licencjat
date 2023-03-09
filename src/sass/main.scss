@@ -221,7 +221,7 @@ a {
 				border: 2px solid c.$dark-blue;
 				padding: 2em;
 				border-radius: 1em;
-				width: 80vh;
+				width: 80%;
 				min-height: 50vh;
 				background-color: c.$light-blue;
 
@@ -613,6 +613,7 @@ a {
 				&-answer-board {
 					position: absolute;
 					background-color: c.$white;
+					min-width: 350px;
 					width: 60%;
 					height: 95%;
 					left: 50%;
