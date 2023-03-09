@@ -60,10 +60,17 @@
                     </section>
                 </div>
                 <div class="middle-page">
-                    <section class="clock">
-
+                    <section class="stats">
+                        <div class="stoper">
+                            <p class="text">Czas</p>
+                            <p class="value stopwatch">0:00</p>
+                        </div>
+                        <div class="points">
+                            <p class="text">Punkty</p>
+                            <p class="value result ">1000</p>
+                        </div>
                     </section>
-                    <section class="mainDraw_container-tools-board">
+                    <section class=" mainDraw_container-tools-board">
                         <div class="row">
                             <label class="title">Figury</label>
                             <ul class="options">
@@ -101,14 +108,14 @@
                                     <span>Gumka</span>
                                 </li>
                                 <li class="option ">
-                                    <input type="range" min="1" max="50" step=".1" id="size-slider">
+                                    <input type="range" min="1" max="11" step=".1" id="size-slider">
                                 </li>
                             </ul>
                         </div>
                         <div class="row colors">
                             <label class="title">Kolory</label>
                             <ul class="options">
-                                <li class="option">
+                                <li class="option selected">
                                 </li>
                                 <li class="option">
                                 </li>
@@ -122,6 +129,7 @@
                             </ul>
                         </div>
                         <div class="row buttons">
+                            <button class="button start-play">Start</button>
                             <button class="button clear-canvas">Wyczyść</button>
                             <button class="button check-answer">Sprawdź</button>
 
@@ -150,6 +158,7 @@
 
     <!-- @include 'footer.kit' -->
 
+    <script src="../dist/js/timer.js"></script>
     <script src="./dist/js/main.js"></script>
     <script src="./dist/js/draw.js"></script>
 </body>

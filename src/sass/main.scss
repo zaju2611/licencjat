@@ -219,22 +219,22 @@ a {
 				display: flex;
 				flex-direction: column;
 				border: 2px solid c.$dark-blue;
-				padding: 2em;
+				padding: 1.5em;
 				border-radius: 1em;
-				width: 80%;
-				min-height: 50vh;
+				width: 60%;
+				min-height: 50%;
 				background-color: c.$light-blue;
 
 				.input {
 					width: 100%;
-					margin-bottom: 2em;
+					margin-bottom: 1em;
 					border-radius: 0.5em;
 					border: none;
 				}
 
 				.name,
 				.email {
-					height: 6vh;
+					height: 4rem;
 					padding-left: 1em;
 					font-size: 1.5rem;
 					font-family: "Rajdhani", sans-serif;
@@ -454,21 +454,52 @@ a {
 .mainDraw {
 	background-color: c.$light-blue;
 	min-height: 100vh;
+	width: 100%;
 	&_container {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
+		flex-wrap: wrap;
 		width: 100%;
 		gap: 1em;
 		padding: 1em;
+		.middle-page {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: row;
+
+			.stats {
+				background-color: c.$dark-blue;
+				padding: 1em;
+				margin-right: 1em;
+				text-align: center;
+				color: c.$white;
+				border-radius: 0.5em;
+				min-width: 14%;
+				letter-spacing: 0.1em;
+				.text {
+					font-size: 2rem;
+				}
+				.value {
+					font-size: 3.3rem;
+					font-weight: bold;
+				}
+				.pulse {
+					animation: pulse 1s linear infinite;
+				}
+			}
+		}
 
 		&-tools-board {
 			display: flex;
 			flex-direction: row;
+			flex-wrap: wrap;
 			border-radius: 0.5em;
 			padding: 1em;
-			min-width: 60%;
+			min-width: 86%;
+
 			background-color: c.$dark-blue;
 			.row {
 				padding: 0 2em;
@@ -559,7 +590,7 @@ a {
 							background-color: #dd0000;
 						}
 						&:nth-child(5) {
-							background-color: transparent;
+							background-color: white;
 						}
 						#color-picker {
 							opacity: 0;
@@ -567,8 +598,8 @@ a {
 						}
 					}
 					.selected {
-						border: 2px solid c.$white;
-						box-shadow: 0 0 1px 1px c.$white;
+						border: 2px solid c.$purple;
+						box-shadow: 0 0 2px 1px c.$purple;
 					}
 				}
 			}
@@ -581,7 +612,7 @@ a {
 				.button {
 					width: 9em;
 					padding: 0.5em;
-					margin: 1em;
+					margin: 0.5em;
 					border: none;
 					border-radius: 0.5em;
 					background-color: c.$white;
@@ -650,14 +681,14 @@ a {
 				justify-content: center;
 				align-items: center;
 				flex-direction: column;
-				margin: 4em;
-				width: 80px;
-				height: 80px;
+				margin: 2em;
+				width: 60px;
+				height: 60px;
 				border: none;
 				border-radius: 50%;
 				color: c.$white;
 				opacity: 0;
-				font-size: 1.5rem;
+				font-size: 1.3rem;
 				span {
 					font-size: 2.5rem;
 				}
@@ -691,6 +722,12 @@ a {
 			}
 		}
 
+		.addPoint {
+			animation: goodAnswer 1s linear forwards;
+		}
+		.removePoint {
+			animation: wrongAnswer 1s linear forwards;
+		}
 		.top-page {
 			display: flex;
 			justify-content: center;

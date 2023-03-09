@@ -64,3 +64,44 @@
 		scale: 1;
 	}
 }
+
+@keyframes pulse {
+	0% {
+		transform: scale(1);
+	}
+	70% {
+		transform: scale(0.9);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes goodAnswer {
+	0% {
+		transform: scale(1);
+		color: white;
+	}
+	60% {
+		transform: scale(1.2);
+		color: green;
+	}
+	100% {
+		transform: scale(1);
+		color: white;
+	}
+}
+@keyframes wrongAnswer {
+	0% {
+		transform: scale(1);
+		color: white;
+	}
+	60% {
+		transform: scale(0.8);
+		color: red;
+	}
+	100% {
+		transform: scale(1);
+		color: white;
+	}
+}
