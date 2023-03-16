@@ -7,14 +7,16 @@ const answerCard = document.querySelector(
 const result = document.querySelector(".result");
 const goodBtn = document.querySelector(".good-answer");
 const badBtn = document.querySelector(".wrong-answer");
-const checkBtn = document.querySelector(".check-answer");
+const startBtn = document.querySelector(".start-play");
 const answerBtns = document.querySelectorAll(".button-answer");
+const clearCanvas = document.querySelector(".clear-canvas");
 const drawingCard = document.querySelector(
 	".mainDraw_container-cards-container-drawing-board"
 );
+const arr = [];
 let points = 0;
 let index = Math.floor(Math.random() * 7) + 1;
-
+arr.push(index);
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
 import {
 	getDatabase,
@@ -98,6 +100,7 @@ function addPoint(index) {
 			if (snapshot.exists()) {
 				const data = snapshot.val();
 				points += data.p;
+				result.textContent = points;
 			} else {
 				console.log("no data available");
 			}
@@ -106,7 +109,6 @@ function addPoint(index) {
 			console.error(error);
 		});
 
-	result.textContent = points;
 	result.classList.add("addPoint");
 	setTimeout(() => {
 		result.classList.remove("addPoint");
@@ -120,6 +122,7 @@ function removePoint(index) {
 			if (snapshot.exists()) {
 				const data = snapshot.val();
 				points -= data.p;
+				result.textContent = points;
 			} else {
 				console.log("no data available");
 			}
@@ -128,7 +131,6 @@ function removePoint(index) {
 			console.error(error);
 		});
 
-	result.textContent = points;
 	result.classList.add("removePoint");
 	setTimeout(() => {
 		result.classList.remove("removePoint");
@@ -149,20 +151,35 @@ function removeAnswerCards() {
 	});
 }
 
-window.addEventListener("load", function () {
+function getRandomUniqueNumber(min, max, arr) {
+	let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+	while (arr.includes(randomNumber)) {
+		randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+	arr.push(randomNumber);
+	return randomNumber;
+}
+
+clearCanvas.addEventListener("click", function () {
+	setData(index);
+});
+
+startBtn.addEventListener("click", function () {
 	setData(index);
 });
 
 goodBtn.addEventListener("click", function () {
 	addPoint(index);
-	index = Math.floor(Math.random() * 7) + 1;
+	index = getRandomUniqueNumber(1, 7, arr);
+	console.log(index);
 	setData(index);
 	removeAnswerCards();
 });
 
 badBtn.addEventListener("click", function () {
 	removePoint(index);
-	index = Math.floor(Math.random() * 7) + 1;
+	index = getRandomUniqueNumber(1, 7, arr);
+	console.log(index);
 	setData(index);
 	removeAnswerCards();
 });

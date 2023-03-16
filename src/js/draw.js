@@ -135,7 +135,6 @@ toolsBtns.forEach((btn) => {
 		document.querySelector(".options .active").classList.remove("active");
 		btn.classList.add("active");
 		selectedTool = btn.id;
-		console.log(selectedTool);
 	});
 });
 
@@ -170,4 +169,3 @@ checkBtn.addEventListener("click", () => {
 canvas.addEventListener("mousedown", startDraw);
 canvas.addEventListener("mouseup", stopDraw);
 canvas.addEventListener("mousemove", drawing);
-

@@ -12,6 +12,7 @@
 <body>
 
     <main class="mainDraw">
+
         <div class="wrapper">
 
             <div class="mainDraw_container">
@@ -51,23 +52,18 @@
 
                     <section class="mainDraw_container-task-content">
                         <h2 class="title ">Treść zadania</h2>
-                        <p class="content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo minus, esse
-                            temporibus iste
-                            similique natus. Quis soluta ipsam mollitia maxime libero nulla praesentium facere quibusdam
-                            harum, officia eos eum qui. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
-                            earum adipisci delectus porro rerum cum voluptates. Velit minima, fugiat placeat tempora,
-                            doloremque cupiditate ab praesentium recusandae in natus aperiam iure?</p>
+                        <p class="content"></p>
                     </section>
                 </div>
                 <div class="middle-page">
                     <section class="stats">
                         <div class="stoper">
                             <p class="text">Czas</p>
-                            <p class="value stopwatch">0:00</p>
+                            <p class="value stopwatch">10:00</p>
                         </div>
                         <div class="points">
                             <p class="text">Punkty</p>
-                            <p class="value result ">1000</p>
+                            <p class="value result ">0</p>
                         </div>
                     </section>
                     <section class=" mainDraw_container-tools-board">
@@ -154,12 +150,18 @@
 
             </div>
         </div>
+        <div class="popupResult ">
+            <span class="mdi mdi-close-circle-outline buttonPopup"></span>
+            <h2 class="textPopup">Twój wynik</h2>
+            <p class="resultPopup">123 pkt</p>
+        </div>
+        <canvas id="my-canvas"></canvas>
     </main>
 
     <!-- @include 'footer.kit' -->
-
-    <script src="../dist/js/timer.js"></script>
-    <script src="./dist/js/main.js"></script>
+    <script src="../src/js/confetti.js"></script>
+    <script src="../src/js/timer.js"></script>
+    <script src="../src/js/main.js"></script>
     <script type="module" src="./src/js/draw.js"></script>
     <script type="module" src="./src/js/fetchData.js"></script>
 </body>
