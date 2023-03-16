@@ -23,26 +23,18 @@
 @keyframes d-anim {
 	from {
 		transform: translate(-50%, -50%);
-		width: 60%;
-		min-width: 350px;
 	}
 	to {
 		transform: translate(-102%, -50%);
-		width: 50%;
-		min-width: 200px;
 	}
 }
 
 @keyframes a-anim {
 	from {
 		transform: translate(-50%, -50%);
-		width: 60%;
-		min-width: 350px;
 	}
 	to {
 		transform: translate(2%, -50%);
-		width: 50%;
-		min-width: 200px;
 	}
 }
 @keyframes grow {

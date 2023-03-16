@@ -20,6 +20,7 @@ let brushWidth = 5;
 let selectedTool = "brush";
 let prevMouseX, prevMouseY, snapshot;
 let selectedColor = "#000000";
+let data = 0;
 
 window.addEventListener("load", () => {
 	canvas.width = canvas.offsetWidth;
@@ -169,3 +170,4 @@ checkBtn.addEventListener("click", () => {
 canvas.addEventListener("mousedown", startDraw);
 canvas.addEventListener("mouseup", stopDraw);
 canvas.addEventListener("mousemove", drawing);
+

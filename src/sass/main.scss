@@ -453,15 +453,17 @@ a {
 
 .mainDraw {
 	background-color: c.$light-blue;
-	min-height: 100vh;
+	min-height: 95vh;
 	width: 100%;
+	padding: 1em;
 	&_container {
 		display: flex;
-		justify-content: center;
+		justify-content: space-around;
 		align-items: center;
 		flex-direction: column;
 		flex-wrap: wrap;
 		width: 100%;
+
 		gap: 1em;
 		padding: 0.5em;
 		.middle-page {
@@ -469,7 +471,8 @@ a {
 			justify-content: center;
 			align-items: center;
 			flex-direction: row;
-
+			width: 100%;
+			padding: 0.5em;
 			.stats {
 				background-color: c.$dark-blue;
 				padding: 1em;
@@ -494,11 +497,13 @@ a {
 
 		&-tools-board {
 			display: flex;
+			align-items: center;
+			justify-content: space-around;
 			flex-direction: row;
 			flex-wrap: wrap;
 			border-radius: 0.5em;
 			padding: 1em;
-			min-width: 86%;
+			min-width: 60%;
 
 			background-color: c.$dark-blue;
 			.row {
@@ -632,23 +637,23 @@ a {
 		}
 		&-cards {
 			display: flex;
-			justify-content: space-between;
+			justify-content: space-around;
 			align-items: center;
 			flex-direction: row;
+			flex-wrap: wrap;
 			width: 100%;
 
 			&-container {
 				position: relative;
-				width: 80%;
-				min-height: 75vh;
+				width: 70%;
+				height: 500px;
 
 				&-drawing-board,
 				&-answer-board {
 					position: absolute;
 					background-color: c.$white;
-					min-width: 350px;
-					width: 60%;
-					height: 95%;
+					width: 400px;
+					height: 450px;
 					left: 50%;
 					top: 50%;
 					transform: translate(-50%, -50%);
@@ -683,9 +688,9 @@ a {
 				justify-content: center;
 				align-items: center;
 				flex-direction: column;
-				margin: 2em;
-				width: 60px;
-				height: 60px;
+				margin: 1em;
+				width: 70px;
+				height: 70px;
 				border: none;
 				border-radius: 50%;
 				color: c.$white;
@@ -732,12 +737,13 @@ a {
 		}
 		.top-page {
 			display: flex;
-			justify-content: center;
+			justify-content: space-around;
 			align-items: center;
 			background-color: c.$dark-blue;
 			border-radius: 0.5em;
 			padding: 1em;
-			min-width: 80%;
+			min-width: 40%;
+			max-width: 60%;
 			min-height: 100px;
 			.logo {
 				display: flex;
