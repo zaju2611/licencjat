@@ -5,6 +5,8 @@ const confettiSettings = { target: "my-canvas" };
 const conf = document.querySelector("#my-canvas");
 const confetti = new ConfettiGenerator(confettiSettings);
 const closeBtn = document.querySelector(".buttonPopup");
+const result = document.querySelector(".result");
+const resultPopup = document.querySelector(".resultPopupValue");
 
 let countTime;
 let minutes = 0;
@@ -39,6 +41,7 @@ const handleStart = () => {
 			conf.style.visibility = "visible";
 			minutes = 0;
 			seconds = 0;
+			resultPopup.textContent = result.innerHTML;
 			clearInterval(countTime);
 		}
 	}, 1000);
@@ -47,7 +50,6 @@ const handleStart = () => {
 startBtn.addEventListener("click", handleStart);
 
 closeBtn.addEventListener("click", () => {
-	location.href = "http://localhost:3000/index.html";
 	popup.classList.remove("activePopup");
 	conf.style.visibility = "hidden";
 });

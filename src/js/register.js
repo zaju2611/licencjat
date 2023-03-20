@@ -41,6 +41,7 @@ function registerUser() {
 			set(ref(db, "users/" + user.uid), {
 				username: username.value,
 				email: email.value,
+				highScore: 0,
 				password: encPass(),
 			})
 				.then(() => {

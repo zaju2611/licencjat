@@ -13,6 +13,7 @@ const clearCanvas = document.querySelector(".clear-canvas");
 const drawingCard = document.querySelector(
 	".mainDraw_container-cards-container-drawing-board"
 );
+const resultPopup = document.querySelector(".resultPopup");
 const arr = [];
 let points = 0;
 let index = Math.floor(Math.random() * 7) + 1;
