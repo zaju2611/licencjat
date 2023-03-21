@@ -42,6 +42,7 @@ a {
 	font-size: 2rem;
 	color: c.$light-blue;
 	padding: 1.2rem;
+	position: relative;
 
 	&_container {
 		display: flex;
@@ -50,6 +51,7 @@ a {
 		// font-family: "Tourney", cursive;
 
 		&-list {
+			display: flex;
 			font-weight: 200;
 			&-item {
 				margin-right: 1em;
@@ -71,6 +73,19 @@ a {
 
 		&-logo {
 			margin-left: 1em;
+		}
+
+		&-burgerButton {
+			display: none;
+			cursor: pointer;
+			margin-right: 1em;
+
+			.line {
+				width: 25px;
+				height: 2px;
+				background-color: c.$white;
+				margin: 5px;
+			}
 		}
 	}
 }
@@ -148,10 +163,13 @@ a {
 			flex-wrap: wrap;
 			padding-bottom: 2em;
 			&-a {
+				height: 18em;
+				width: 14em;
+				margin: 2em;
 				&-button {
-					height: 20em;
-					width: 15em;
-					margin: 2em;
+					height: 100%;
+					width: 100%;
+
 					background-color: c.$light-blue;
 					border-radius: 2em;
 					border: none;
@@ -205,11 +223,12 @@ a {
 .mainContact {
 	&_section {
 		&-container {
-			min-height: 100vh;
+			min-height: 90vh;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			flex-direction: column;
+			padding: 1em;
 			&-h1 {
 				padding-bottom: 1em;
 				font-size: 4.2rem;
@@ -311,12 +330,13 @@ a {
 .mainRegister,
 .mainLogin {
 	&_container {
+		position: relative;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
-		position: relative;
-		min-height: 90vh;
+		min-height: 95vh;
+
 		&-h1 {
 			padding-bottom: 0.5em;
 			font-size: 4.2rem;
@@ -846,9 +866,10 @@ a {
 				align-items: center;
 				flex-direction: column;
 				min-height: 475px;
-				width: 31%;
-				padding: 0.5em;
-				margin-bottom: 1.5em;
+				width: 350px;
+				margin: 1.5em;
+				padding: 1em;
+
 				background-color: c.$white;
 				color: c.$dark-blue;
 				border: 2px solid c.$dark-blue;
@@ -858,6 +879,7 @@ a {
 				.card-title {
 					font-size: 2.5rem;
 					text-align: center;
+					margin-bottom: 0.5em;
 					color: c.$blue;
 				}
 				img {
@@ -935,3 +957,5 @@ a {
 		}
 	}
 }
+
+@import "./small";
