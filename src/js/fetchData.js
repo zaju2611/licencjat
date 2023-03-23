@@ -4,6 +4,7 @@ const taskContent = document.querySelector(".content");
 const answerCard = document.querySelector(
 	".mainDraw_container-cards-container-answer-board"
 );
+const checkAnswer = document.querySelector(".check-answer");
 const result = document.querySelector(".result");
 const goodBtn = document.querySelector(".good-answer");
 const badBtn = document.querySelector(".wrong-answer");
@@ -14,10 +15,13 @@ const drawingCard = document.querySelector(
 	".mainDraw_container-cards-container-drawing-board"
 );
 const resultPopup = document.querySelector(".resultPopup");
+const urlParams = new URLSearchParams(window.location.search);
+const gameType = urlParams.get("game");
+
 const arr = [];
 let points = 0;
-let index = Math.floor(Math.random() * 7) + 1;
-arr.push(index);
+let index = 0;
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
 import {
 	getDatabase,
@@ -25,16 +29,6 @@ import {
 	child,
 	get,
 } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
-
-const firebaseConfig = {
-	apiKey: "AIzaSyAhj6kkaS_fMvLOwL-J4SXJ_DWSwejBmlo",
-	authDomain: "licencjat-2a013.firebaseapp.com",
-	databaseURL: "https://licencjat-2a013-default-rtdb.firebaseio.com",
-	projectId: "licencjat-2a013",
-	storageBucket: "licencjat-2a013.appspot.com",
-	messagingSenderId: "676690164407",
-	appId: "1:676690164407:web:b234c74f6f771f59a1ab32",
-};
 
 const app = initializeApp(firebaseConfig);
 
@@ -152,13 +146,29 @@ function removeAnswerCards() {
 	});
 }
 
-function getRandomUniqueNumber(min, max, arr) {
-	let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-	while (arr.includes(randomNumber)) {
-		randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+const randUniqueNumber = (min, max) => {
+	const index = Math.floor(Math.random() * (max - min + 1)) + min;
+	return index;
+};
+
+const fetchData = (gameType) => {
+	if (gameType === "flat") {
+		index = randUniqueNumber(1, 7);
+	} else if (gameType === "spatial") {
+		index = randUniqueNumber(8, 10);
+	} else if (gameType === "mix") {
+		index = randUniqueNumber(1, 10);
 	}
-	arr.push(randomNumber);
-	return randomNumber;
+	console.log(index);
+};
+
+function getRandomUniqueNumber(arr) {
+	fetchData(gameType);
+	while (arr.includes(index)) {
+		fetchData(gameType);
+	}
+	arr.push(index);
+	return index;
 }
 
 clearCanvas.addEventListener("click", function () {
@@ -166,12 +176,17 @@ clearCanvas.addEventListener("click", function () {
 });
 
 startBtn.addEventListener("click", function () {
+	fetchData(gameType);
 	setData(index);
+	arr.push(index);
+	clearCanvas.disabled = false;
+	checkAnswer.disabled = false;
+	startBtn.disabled = true;
 });
 
 goodBtn.addEventListener("click", function () {
 	addPoint(index);
-	index = getRandomUniqueNumber(1, 7, arr);
+	index = getRandomUniqueNumber(arr);
 	console.log(index);
 	setData(index);
 	removeAnswerCards();
@@ -179,8 +194,7 @@ goodBtn.addEventListener("click", function () {
 
 badBtn.addEventListener("click", function () {
 	removePoint(index);
-	index = getRandomUniqueNumber(1, 7, arr);
-	console.log(index);
+	index = getRandomUniqueNumber(arr);
 	setData(index);
 	removeAnswerCards();
 });

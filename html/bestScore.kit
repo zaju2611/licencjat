@@ -20,7 +20,7 @@
                     <h2 class="title">
                         Figury płaskie
                     </h2>
-                    <p class="best_score">Najlepszy wynik:&nbsp<span class="score">123 pkt</span>
+                    <p class="best_score">Najlepszy wynik:&nbsp<span class="score flatScore"> -</span>
                     </p>
 
                 </div>
@@ -29,16 +29,16 @@
                     <h2 class="title">
                         Figury przestrzenne
                     </h2>
-                    <div class="best_score">Najlepszy wynik:&nbsp<span class="score">123 pkt</span>
+                    <div class="best_score">Najlepszy wynik:&nbsp<span class="score spatialScore"> -</span>
                     </div>
 
                 </div>
                 <div class="mainScore_container-card">
                     <i class="fa-sharp fa-solid fa-medal icon"></i>
                     <h2 class="title">
-                        Wzory
+                        Mix
                     </h2>
-                    <div class="best_score">Najlepszy wynik:&nbsp<span class="score"> 123 pkt</span>
+                    <div class="best_score">Najlepszy wynik:&nbsp<span class="score mixScore"> -</span>
                     </div>
 
                 </div>
@@ -47,9 +47,12 @@
     </main>
 
     <!-- @include 'footer.kit' -->
+    <script src="../src/js/firebaseConfig.js"></script>
+    <script type="module" src="../src/js/getStatistic.js"></script>
     <script type="module" src="../src/js/logout.js"></script>
     <script src="../src/js/checkUser.js"></script>
     <script src="../src/js/main.js"></script>
+    <script src="../src/js/footer.js"></script>
 </body>
 
 </html>

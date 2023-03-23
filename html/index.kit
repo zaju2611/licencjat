@@ -52,25 +52,20 @@
                     <h2 class="main_game-mode-container-h1">
                         Wybierz tryb nauki
                     </h2>
+                    <p class="info">Musisz się zalogować, aby zacząć grę</p>
                     <div class="main_game-mode-container-buttons">
-                        <a href="draw.html" class="main_game-mode-container-buttons-a">
-                            <button class="main_game-mode-container-buttons-a-button one" disabled>
-                                <span class="mdi mdi-triangle-outline icon"></span>
-                                <p class="text">Figury płaskie</p>
-                            </button>
-                        </a>
-                        <a href="#" class="main_game-mode-container-buttons-a">
-                            <button class="main_game-mode-container-buttons-a-button two" disabled>
-                                <span class="mdi mdi-cube-outline icon"></span>
-                                <p class="text">Figury przestrzenne</p>
-                            </button>
-                        </a>
-                        <a href="#" class="main_game-mode-container-buttons-a">
-                            <button class="main_game-mode-container-buttons-a-button three" disabled>
-                                <span class="mdi mdi-draw-pen icon"></span>
-                                <p class="text">Wzory</p>
-                            </button>
-                        </a>
+                        <button class="main_game-mode-container-buttons-button one">
+                            <span class="mdi mdi-triangle-outline icon"></span>
+                            <p class="text">Figury płaskie</p>
+                        </button>
+                        <button class="main_game-mode-container-buttons-button two">
+                            <span class="mdi mdi-cube-outline icon"></span>
+                            <p class="text">Figury przestrzenne</p>
+                        </button>
+                        <button class="main_game-mode-container-buttons-button three">
+                            <span class="mdi mdi-draw-pen icon"></span>
+                            <p class="text">Mix</p>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -78,8 +73,12 @@
     </main>
     <!-- @include 'footer.kit' -->
     <script type="module" src="../src/js/logout.js"></script>
+    <script src="../src/js/firebaseConfig.js"></script>
     <script src="../src/js/checkUser.js"></script>
     <script src="../src/js/main.js"></script>
+    <script src="../src/js/footer.js"></script>
+    <script src="../src/js/buttonRedirection.js"></script>
+    <script src="../src/js/unblockBtns.js"></script>
 
 </body>
 

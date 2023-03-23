@@ -1,5 +1,6 @@
 @media (max-width: 576px) {
 	.nav {
+		margin: 0;
 		&_container {
 			&-logo {
 				svg {
@@ -21,7 +22,9 @@
 				text-align: center;
 				z-index: 999;
 				&-item {
-					height: 50px;
+					padding: 0.5em 1em;
+					margin: 0.3em;
+					font-size: 3rem;
 				}
 			}
 			&-burgerButton {
@@ -31,7 +34,8 @@
 	}
 
 	.header {
-		min-height: 15em;
+		min-height: 16em;
+		
 		&_container {
 			&-h1 {
 				font-size: 3.5rem;

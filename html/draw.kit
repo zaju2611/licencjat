@@ -127,8 +127,8 @@
                         </div>
                         <div class="row buttons">
                             <button class="button start-play">Start</button>
-                            <button class="button clear-canvas">Wyczyść</button>
-                            <button class="button check-answer">Sprawdź</button>
+                            <button class="button clear-canvas" disabled>Wyczyść</button>
+                            <button class="button check-answer" disabled>Sprawdź</button>
 
                         </div>
                     </section>
@@ -160,10 +160,11 @@
     </main>
 
     <!-- @include 'footer.kit' -->
-    <script type="module" src="../src/js/statistic.js"></script>
+    <script type="module" src="../src/js/setStatistic.js"></script>
+    <script src="../src/js/firebaseConfig.js"></script>
     <script src="../src/js/confetti.js"></script>
     <script src="../src/js/timer.js"></script>
-    <script src="../src/js/main.js"></script>
+    <script src="../src/js/footer.js"></script>
     <script type="module" src="./src/js/draw.js"></script>
     <script type="module" src="./src/js/fetchData.js"></script>
 </body>

@@ -41,7 +41,7 @@ a {
 	background-color: c.$dark-blue;
 	font-size: 2rem;
 	color: c.$light-blue;
-	padding: 1.2rem;
+	padding: .5em;
 	position: relative;
 
 	&_container {
@@ -95,7 +95,8 @@ a {
 }
 
 .header {
-	min-height: 25em;
+	min-height: 16em;
+	background-color: c.$dark-blue;
 	.hero-img {
 		position: relative;
 		background-image: url("../img/shadow.jpg");
@@ -151,13 +152,24 @@ a {
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
+		padding: 1em;
 
-		padding: 3em;
+		.info {
+			background-color: c.$blue;
+			color: c.$white;
+			padding: 0.5em;
+			margin: 1em 0 2em;
+			display: block;
+			border-radius: 10px;
+			animation: pulse 2s linear infinite;
+		}
+
 		&-h1 {
 			font-size: 4.2rem;
 			color: c.$dark-blue;
 			margin-bottom: 0.5em;
 			text-align: center;
+			margin-top: 1em;
 		}
 		&-buttons {
 			display: flex;
@@ -166,41 +178,37 @@ a {
 			flex-direction: row;
 			flex-wrap: wrap;
 			padding-bottom: 2em;
-			&-a {
+
+			&-button {
 				height: 18em;
 				width: 14em;
 				margin: 2em;
-				&-button {
-					height: 100%;
-					width: 100%;
+				background-color: c.$light-blue;
+				border-radius: 2em;
+				border: none;
+				transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+				box-shadow: c.$light-blue 0px 4px 16px, c.$light-blue 0px 8px 32px;
+				cursor: pointer;
 
-					background-color: c.$light-blue;
-					border-radius: 2em;
-					border: none;
-					transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-					box-shadow: c.$light-blue 0px 4px 16px, c.$light-blue 0px 8px 32px;
-					cursor: pointer;
-
-					.icon {
-						color: c.$white;
-						font-size: 10rem;
-						margin-bottom: 0.3em;
-					}
-					.text {
-						font-weight: bold;
-						font-size: 2.5rem;
-						padding: 0.5em;
-						color: c.$white;
-						text-shadow: 2px 2px 5px c.$dark-blue;
-					}
+				.icon {
+					color: c.$white;
+					font-size: 10rem;
+					margin-bottom: 0.3em;
 				}
-				&-button:hover {
-					background-color: c.$dark-blue;
-					box-shadow: c.$dark-blue 0px 4px 16px, c.$dark-blue 0px 8px 32px;
+				.text {
+					font-weight: bold;
+					font-size: 2.5rem;
+					padding: 0.5em;
+					color: c.$white;
+					text-shadow: 2px 2px 5px c.$dark-blue;
+				}
+			}
+			&-button:hover {
+				background-color: c.$dark-blue;
+				box-shadow: c.$dark-blue 0px 4px 16px, c.$dark-blue 0px 8px 32px;
 
-					.text {
-						color: c.$white;
-					}
+				.text {
+					color: c.$white;
 				}
 			}
 		}
