@@ -153,11 +153,11 @@ const randUniqueNumber = (min, max) => {
 
 const fetchData = (gameType) => {
 	if (gameType === "flat") {
-		index = randUniqueNumber(1, 7);
+		index = randUniqueNumber(1, 14);
 	} else if (gameType === "spatial") {
-		index = randUniqueNumber(8, 10);
+		index = randUniqueNumber(15, 18);
 	} else if (gameType === "mix") {
-		index = randUniqueNumber(1, 10);
+		index = randUniqueNumber(1, 18);
 	}
 	console.log(index);
 };
