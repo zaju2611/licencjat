@@ -1,6 +1,7 @@
 const flatBtn = document.querySelector(".one");
 const spatialBtn = document.querySelector(".two");
 const mixBtn = document.querySelector(".three");
+const teacherBtn = document.querySelector(".four");
 
 const redirection = (name) => {
 	window.location.href = `/draw.html?game=${name}`;
@@ -14,4 +15,7 @@ spatialBtn.addEventListener("click", () => {
 });
 mixBtn.addEventListener("click", () => {
 	redirection("mix");
+});
+teacherBtn.addEventListener("click", () => {
+	redirection("teacher");
 });

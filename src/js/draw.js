@@ -95,10 +95,27 @@ const drawLine = (e) => {
 	ctx.stroke();
 };
 
-const removeDrawing = (e) => {
-	ctx.strokeStyle = "#fff";
-	ctx.lineTo(e.offsetX, e.offsetY);
-	ctx.stroke();
+const addTextInput = (e) => {
+	const textInput = document.createElement("input");
+	textInput.type = "text";
+	textInput.style.position = "absolute";
+	textInput.style.left = e.pageX + "px";
+	textInput.style.top = e.pageY + "px";
+	textInput.style.zIndex = "10000000";
+	textInput.id = "text-input";
+
+	document.body.appendChild(textInput);
+	textInput.focus();
+	textInput.addEventListener("keydown", function (event) {
+		if (event.keyCode === 13) {
+			ctx.fillStyle = selectedColor;
+			ctx.font = "15px sans-serif";
+
+			ctx.fillText(textInput.value, e.offsetX, e.offsetY + 20);
+			textInput.remove();
+		}
+	});
+	e.preventDefault();
 };
 
 const drawing = (e) => {
@@ -122,11 +139,17 @@ const drawing = (e) => {
 		case "line":
 			drawLine(e);
 			break;
-		case "eraser":
-			removeDrawing(e);
-			break;
 		default:
 			break;
+	}
+};
+
+const registerEvents = () => {
+	if (selectedTool === "text") {
+		canvas.addEventListener("click", addTextInput);
+	} else {
+		canvas.removeEventListener("click", addTextInput);
+		canvas.addEventListener("mousemove", drawing);
 	}
 };
 
@@ -135,6 +158,7 @@ toolsBtns.forEach((btn) => {
 		document.querySelector(".options .active").classList.remove("active");
 		btn.classList.add("active");
 		selectedTool = btn.id;
+		registerEvents();
 	});
 });
 
@@ -168,4 +192,6 @@ checkBtn.addEventListener("click", () => {
 
 canvas.addEventListener("mousedown", startDraw);
 canvas.addEventListener("mouseup", stopDraw);
-canvas.addEventListener("mousemove", drawing);
+canvas.addEventListener("mouseleave", stopDraw);
+
+registerEvents();

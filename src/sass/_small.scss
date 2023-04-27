@@ -1,193 +1,49 @@
-@media (max-width: 576px) {
-	.nav {
-		margin: 0;
+@media (max-width: 400px) {
+	.nav_container-logo {
+		img {
+			margin-top: 5px;
+			width: 150px;
+		}
+	}
+
+	.mainDraw {
 		&_container {
-			&-logo {
-				svg {
+			.top-page {
+				img {
 					width: 150px;
 				}
 			}
-
-			&-list {
-				position: fixed;
-				display: none;
-				justify-content: center;
-				align-items: center;
-				flex-direction: column;
-				width: 100%;
-				height: 100%;
-				background-color: rgba($color: #000000, $alpha: 0.95);
-				top: 0;
-				left: 0;
-				text-align: center;
-				z-index: 999;
-				&-item {
-					padding: 0.5em 1em;
-					margin: 0.3em;
-					font-size: 3rem;
+			&-tools-board {
+				padding: 10px;
+				.row {
+					padding: 0;
 				}
-			}
-			&-burgerButton {
-				display: block;
-			}
-		}
-	}
-
-	.header {
-		min-height: 16em;
-		
-		&_container {
-			&-h1 {
-				font-size: 3.5rem;
-			}
-			&-text-h2 {
-				font-size: 2rem;
-			}
-
-			&-text-p {
-				font-size: 1.7rem;
-			}
-		}
-	}
-
-	.main {
-		&_game-mode-container {
-			&-h1 {
-				font-size: 3rem;
-			}
-			&-buttons {
-				&-a {
-					height: 15em;
-					width: 12em;
-					margin: 1.5em;
-					.icon {
-						font-size: 7em;
-					}
-
-					.text {
-						font-size: 2rem;
+				.colors {
+					margin-top: 10px;
+					text-align: center;
+					.options {
+						flex-direction: row;
+						.option {
+							margin-right: 10px;
+						}
 					}
 				}
 			}
-		}
-	}
 
-	.mainFormulas {
-		.title {
-			font-size: 3rem;
-		}
-		&_section {
-			.plane-figures {
-				&_card {
-					.card-title {
-						font-size: 2rem;
-					}
-
-					min-height: 300px;
-					margin: 0.5em;
-
-					img {
-						width: 80%;
-						height: 150px;
-					}
-
-					&-formulas {
-						font-size: 1.5rem;
+			&-cards {
+				.good-answer {
+					margin: 10px 30px 10px 30px;
+				}
+				.wrong-answer {
+					margin: 10px 30px 10px 30px;
+				}
+				&-container {
+					&-drawing-board,
+					&-answer-board {
+						width: 250px;
+						height: 325px;
 					}
 				}
-			}
-		}
-	}
-
-	.mainContact {
-		&_section {
-			&-container {
-				min-height: 90vh;
-				&-h1 {
-					font-size: 3rem;
-				}
-				&-form {
-					width: 90%;
-
-					.send {
-						height: 5vh;
-					}
-				}
-			}
-		}
-	}
-
-	.mainThanks {
-		&_section {
-			padding: 0 1em;
-			&-text {
-				&-h1 {
-					font-size: 3rem;
-				}
-				&-thanks {
-					font-size: 1.5rem;
-					margin-bottom: 1em;
-				}
-				&-backToPage-a {
-					&-button {
-						font-size: 1.2rem;
-					}
-				}
-			}
-		}
-	}
-
-	.mainRegister,
-	.mainLogin {
-		&_container {
-			min-height: 95vh;
-			&-h1 {
-				font-size: 3.5rem;
-				margin-bottom: 1em;
-			}
-			&-form {
-				width: 90%;
-			}
-
-			.popup {
-				left: 50%;
-			}
-		}
-	}
-
-	.mainScore {
-		&_container {
-			&-card {
-				min-height: 200px;
-				min-width: 250px;
-
-				.icon {
-					font-size: 4rem;
-				}
-
-				.title {
-					font-size: 2.5rem;
-				}
-				.best_score {
-					font-size: 1.7rem;
-					.score {
-						font-size: 2rem;
-					}
-				}
-			}
-			&-card:nth-child(1) {
-				margin-top: 2em;
-			}
-			&-card:nth-child(3) {
-				margin-bottom: 2em;
-			}
-		}
-	}
-
-	.footer {
-		&_container {
-			&-text {
-				font-size: 1.5rem;
 			}
 		}
 	}

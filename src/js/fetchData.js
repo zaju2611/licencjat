@@ -79,6 +79,7 @@ function setAnswer(index) {
 				const data = snapshot.val();
 				answerCard.style.backgroundImage = `url('${data.o}')`;
 				answerCard.style.backgroundSize = "contain";
+				answerCard.style.backgroundPosition = "center";
 			} else {
 				console.log("no data available");
 			}
@@ -153,11 +154,11 @@ const randUniqueNumber = (min, max) => {
 
 const fetchData = (gameType) => {
 	if (gameType === "flat") {
-		index = randUniqueNumber(1, 14);
+		index = randUniqueNumber(1, 16);
 	} else if (gameType === "spatial") {
-		index = randUniqueNumber(15, 18);
+		index = randUniqueNumber(22, 160);
 	} else if (gameType === "mix") {
-		index = randUniqueNumber(1, 18);
+		index = randUniqueNumber(100, 160);
 	}
 	console.log(index);
 };

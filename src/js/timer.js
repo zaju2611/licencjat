@@ -9,7 +9,7 @@ const result = document.querySelector(".result");
 const resultPopup = document.querySelector(".resultPopupValue");
 
 let countTime;
-let minutes = 1;
+let minutes = 2;
 let seconds = 00;
 
 const handleStart = () => {

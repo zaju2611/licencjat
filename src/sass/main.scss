@@ -537,6 +537,7 @@ a {
 		visibility: hidden;
 		pointer-events: none;
 	}
+
 	&_container {
 		display: flex;
 		justify-content: space-around;
@@ -969,4 +970,14 @@ a {
 	}
 }
 
+#text-input {
+	width: 50px;
+	height: 30px;
+	padding: 5px;
+	border: none;
+}
+
+@import "./large";
+@import "./big";
+@import "./medium";
 @import "./small";
