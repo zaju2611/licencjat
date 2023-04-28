@@ -3,7 +3,6 @@ import {
 	getAuth,
 	createUserWithEmailAndPassword,
 	signOut,
-	onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
 import {
 	getDatabase,
@@ -23,6 +22,7 @@ const sendBtn = document.querySelector(".send");
 const clearBtn = document.querySelector(".clear");
 const closeBtn = document.querySelector(".close");
 const popup = document.querySelector(".popup");
+const popupText = document.querySelector(".popup p");
 
 function registerUser() {
 	createUserWithEmailAndPassword(auth, email.value, password.value)
@@ -49,9 +49,8 @@ function registerUser() {
 				});
 		})
 		.catch((error) => {
-			const errorCode = error.code;
-			const errorMessage = error.message;
-			alert(errorMessage);
+			popupText.textContent = "Użytkownik o tym adresie email już istnieje";
+			popup.classList.add("show-popup");
 		});
 }
 
@@ -74,10 +73,20 @@ const clearErr = (input) => {
 
 const checkForm = (input) => {
 	input.forEach((el) => {
-		if (el.value === "") {
-			showErr(el, el.placeholder + "!");
+		if (el.value.trim() === "") {
+			showErr(el, el.placeholder.toLowerCase() + " !");
 		} else {
 			clearErr(el);
+			if (el === username) {
+				checkLenght(username, 3);
+			} else if (el === password) {
+				checkLenght(password, 8);
+			} else if (el === confirmPassword) {
+				checkPassword(password, confirmPassword);
+				checkLenght(password, 8);
+			} else if (el === email) {
+				checkEmail(email);
+			}
 		}
 	});
 };
@@ -138,10 +147,6 @@ clearBtn.addEventListener("click", (e) => {
 sendBtn.addEventListener("click", (e) => {
 	e.preventDefault();
 	checkForm([username, password, confirmPassword, email]);
-	checkLenght(username, 3);
-	checkLenght(password, 8);
-	checkPassword(password, confirmPassword);
-	checkEmail(email);
 	checkErrors();
 });
 

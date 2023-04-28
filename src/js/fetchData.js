@@ -211,6 +211,7 @@ goodBtn.addEventListener("click", function () {
 	console.log(index);
 	setData(index);
 	removeAnswerCards();
+	window.scrollTo(0, 0);
 });
 
 badBtn.addEventListener("click", function () {
@@ -218,4 +219,5 @@ badBtn.addEventListener("click", function () {
 	index = getRandomUniqueNumber(arr);
 	setData(index);
 	removeAnswerCards();
+	window.scrollTo(0, 0);
 });

@@ -2,7 +2,7 @@ const nextBtn = document.querySelector(".next");
 const canvas = document.querySelector(".canvas");
 const content = document.querySelector(".content");
 const downloadBtn = document.querySelector(".downloadFile");
-
+const text = document.querySelector(".textPopup");
 const images = [];
 
 const saveImage = () => {
@@ -16,6 +16,7 @@ const saveImage = () => {
 
 nextBtn.addEventListener("click", () => {
 	saveImage();
+	window.scrollTo(0, 0);
 });
 
 const saveImagesToFile = () => {
@@ -27,7 +28,7 @@ const saveImagesToFile = () => {
 			)
 			.join("");
 
-		const fileContent = `<!DOCTYPE html><html><head><title>Moje rozwiązania</title></head><body style="display:flex; flex-direction: column; align-items:center; background-color:rgb(182, 213, 255); font-family: sans-serif;color:rgb(27, 28, 108)"><h1 style="color:#ffffff;">Moje rozwiązania</h1><div style="display:flex; flex-direction: column; align-items:center">${imagesHtml}</div></body></html>`;
+		const fileContent = `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Moje rozwiązania</title></head><body style="display:flex; flex-direction: column; align-items:center; background-color:rgb(182, 213, 255); font-family: sans-serif;color:rgb(27, 28, 108)"><h1 style="color:#ffffff; font-size: 40px">Moje rozwiązania</h1><div style="width:100%; display:flex; flex-direction: column; align-items:center">${imagesHtml}</div></body></html>`;
 		const blob = new Blob([fileContent], { type: "text/html;charset=utf-8" });
 		const url = URL.createObjectURL(blob);
 
@@ -41,4 +42,12 @@ const saveImagesToFile = () => {
 downloadBtn.addEventListener("click", () => {
 	console.log("cos tam");
 	saveImagesToFile();
+	text.classList.add("fade-out");
+	setTimeout(() => {
+		text.textContent = "Wyślij nauczycielowi pobrany plik do sprawdzenia";
+
+		// Usuń klasę z animacją
+		text.classList.remove("fade-out");
+		text.classList.add("fade-in");
+	}, 1000);
 });

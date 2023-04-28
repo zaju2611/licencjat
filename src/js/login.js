@@ -2,12 +2,9 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebas
 import {
 	getAuth,
 	signInWithEmailAndPassword,
-	signOut,
-	onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
 import {
 	getDatabase,
-	set,
 	ref,
 	update,
 } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
@@ -20,10 +17,8 @@ const password = document.querySelector("#password");
 const email = document.querySelector("#mail");
 const sendBtn = document.querySelector(".login");
 const error = document.querySelector(".error-text");
-const closeBtn = document.querySelector(".close");
-const signin = document.querySelector(".sign-in");
-const signout = document.querySelector(".sign-out");
-const results = document.querySelector(".results");
+
+let err = 0;
 
 const showErr = (input, msg) => {
 	const formBox = input.parentElement;
@@ -32,14 +27,32 @@ const showErr = (input, msg) => {
 	errorMsg.textContent = msg;
 };
 
+const clearErr = (input) => {
+	const formBox = input.parentElement;
+	formBox.classList.remove("error");
+};
+
+const checkForm = (input) => {
+	input.forEach((el) => {
+		if (el.value.trim() === "") {
+			showErr(el, el.placeholder.toLowerCase() + " !");
+			err++;
+		} else {
+			clearErr(el);
+			err--;
+		}
+	});
+};
+
 sendBtn.addEventListener("click", (e) => {
 	e.preventDefault();
+	checkForm([email, password]);
+
 	signInWithEmailAndPassword(auth, email.value, password.value)
 		.then((userCredential) => {
-			// Signed in
 			const user = userCredential.user;
 			const lgDate = new Date();
-			// ...
+
 			update(ref(db, "users/" + user.uid), {
 				last_login: lgDate,
 			})
@@ -55,18 +68,10 @@ sendBtn.addEventListener("click", (e) => {
 				});
 		})
 		.catch((error) => {
-			showErr(email, "Użytkownik nie istnieje");
-		});
-});
-
-signout.addEventListener("click", (e) => {
-	e.preventDefault();
-	signOut(auth)
-		.then(() => {
-			sessionStorage.removeItem("user");
-			location.href = "http://localhost:3000/index.html";
-		})
-		.catch((error) => {
-			alert("błąd przy wylogowywaniu");
+			if (err === 0) {
+				showErr(email, "Wprowadzono błędne dane");
+				email.value = "";
+				password.value = "";
+			}
 		});
 });
