@@ -75,6 +75,8 @@ const updateHighscore = (newScore) => {
 					} else {
 						location.href = "http://localhost:3000/index.html";
 					}
+				} else {
+					location.href = "http://localhost:3000/index.html";
 				}
 			});
 		});

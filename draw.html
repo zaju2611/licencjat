@@ -7,6 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>geoDraw</title>
 
+    <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+    <script>
+        (function () {
+            emailjs.init("LSVBL2WjbmAYXZHF8");
+        })();
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -112,6 +119,7 @@
                             <button class="button start-play">Start</button>
                             <button class="button clear-canvas" disabled>Wyczyść</button>
                             <button class="button check-answer" disabled>Sprawdź</button>
+                            <button class="button next" disabled>Następne</button>
 
                         </div>
                     </section>
@@ -138,6 +146,7 @@
             <span class="mdi mdi-close-circle-outline buttonPopup"></span>
             <h2 class="textPopup">Twój wynik</h2>
             <p class="resultPopup"><span class="resultPopupValue">123</span> pkt</p>
+            <button class="downloadFile">Pobierz</button>
         </div>
         <canvas id="my-canvas"></canvas>
     </main>
@@ -154,8 +163,11 @@
     <script src="../src/js/confetti.js"></script>
     <script src="../src/js/timer.js"></script>
     <script src="../src/js/footer.js"></script>
-    <script type="module" src="./src/js/draw.js"></script>
-    <script type="module" src="./src/js/fetchData.js"></script>
+    <script type="module" src="../src/js/draw.js"></script>
+    <script type="module" src="../src/js/fetchData.js"></script>
+    <script type="module" src="../src/js/teacherMode.js"></script>
+
+
 </body>
 
 </html>

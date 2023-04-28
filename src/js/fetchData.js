@@ -14,6 +14,8 @@ const clearCanvas = document.querySelector(".clear-canvas");
 const drawingCard = document.querySelector(
 	".mainDraw_container-cards-container-drawing-board"
 );
+const userPoints = document.querySelector(".points");
+const nextBtn = document.querySelector(".next");
 const resultPopup = document.querySelector(".resultPopup");
 const urlParams = new URLSearchParams(window.location.search);
 const gameType = urlParams.get("game");
@@ -153,7 +155,7 @@ const randUniqueNumber = (min, max) => {
 };
 
 const fetchData = (gameType) => {
-	if (gameType === "flat") {
+	if (gameType === "flat" || gameType === "teacher") {
 		index = randUniqueNumber(1, 16);
 	} else if (gameType === "spatial") {
 		index = randUniqueNumber(22, 160);
@@ -172,6 +174,23 @@ function getRandomUniqueNumber(arr) {
 	return index;
 }
 
+if (gameType === "teacher") {
+	nextBtn.style.display = "block";
+	checkAnswer.style.display = "none";
+	goodBtn.style.display = "none";
+	badBtn.style.display = "none";
+	userPoints.style.display = "none";
+	resultPopup.style.display = "none";
+	document.querySelector(".downloadFile").style.display = "block";
+	document.querySelector(".textPopup").textContent =
+		"Pobierz plik z odpowiedziami";
+}
+
+nextBtn.addEventListener("click", () => {
+	index = getRandomUniqueNumber(arr);
+	setData(index);
+});
+
 clearCanvas.addEventListener("click", function () {
 	setData(index);
 });
@@ -182,6 +201,7 @@ startBtn.addEventListener("click", function () {
 	arr.push(index);
 	clearCanvas.disabled = false;
 	checkAnswer.disabled = false;
+	nextBtn.disabled = false;
 	startBtn.disabled = true;
 });
 

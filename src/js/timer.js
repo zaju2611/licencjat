@@ -9,8 +9,8 @@ const result = document.querySelector(".result");
 const resultPopup = document.querySelector(".resultPopupValue");
 
 let countTime;
-let minutes = 2;
-let seconds = 00;
+let minutes = 0;
+let seconds = 15;
 
 const handleStart = () => {
 	clearInterval(countTime);
