@@ -501,6 +501,7 @@ a {
 		visibility: hidden;
 		.textPopup {
 			font-size: 8rem;
+			padding: 0 50px;
 			margin-bottom: 0.5em;
 			text-align: center;
 		}
@@ -761,7 +762,7 @@ a {
 					z-index: 10;
 				}
 				&-answer-board {
-					background-color: c.$dark-blue;
+					background-color: c.$white;
 					opacity: 0;
 					z-index: 5;
 				}

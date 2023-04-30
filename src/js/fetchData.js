@@ -53,7 +53,19 @@ function setBackground(index) {
 		});
 
 	backgroundImage.addEventListener("load", () => {
-		ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+		const aspectRatio = backgroundImage.width / backgroundImage.height;
+		let width = canvas.width;
+		let height = canvas.height;
+		if (width / aspectRatio < height) {
+			height = width / aspectRatio;
+		} else {
+			width = height * aspectRatio;
+		}
+
+		const x = (canvas.width - width) / 2;
+		const y = (canvas.height - height) / 2;
+
+		ctx.drawImage(backgroundImage, x, y, width, height);
 	});
 }
 
@@ -82,6 +94,7 @@ function setAnswer(index) {
 				answerCard.style.backgroundImage = `url('${data.o}')`;
 				answerCard.style.backgroundSize = "contain";
 				answerCard.style.backgroundPosition = "center";
+				answerCard.style.backgroundRepeat = "no-repeat";
 			} else {
 				console.log("no data available");
 			}
@@ -155,12 +168,12 @@ const randUniqueNumber = (min, max) => {
 };
 
 const fetchData = (gameType) => {
-	if (gameType === "flat" || gameType === "teacher") {
-		index = randUniqueNumber(1, 16);
+	if (gameType === "flat") {
+		index = randUniqueNumber(1, 23);
 	} else if (gameType === "spatial") {
-		index = randUniqueNumber(22, 160);
-	} else if (gameType === "mix") {
-		index = randUniqueNumber(100, 160);
+		index = randUniqueNumber(24, 41);
+	} else if (gameType === "mix" || gameType === "teacher") {
+		index = randUniqueNumber(1, 41);
 	}
 	console.log(index);
 };
