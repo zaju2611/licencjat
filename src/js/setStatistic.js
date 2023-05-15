@@ -18,6 +18,12 @@ console.log(gameType);
 
 const auth = getAuth(app);
 
+const gameTypeData = {
+	flat: "highScoreFlat",
+	spatial: "highScoreSpatial",
+	mix: "highScoreMix",
+};
+
 const updateHighscore = (newScore) => {
 	const user = auth.currentUser;
 
@@ -27,54 +33,20 @@ const updateHighscore = (newScore) => {
 		console.log(user.uid);
 		return new Promise((resolve, reject) => {
 			onValue(userRef, (snapshot) => {
-				if (gameType === "flat") {
-					const currentHighScore = snapshot.val().highScoreFlat;
-					if (newScore > currentHighScore) {
-						update(userRef, { highScoreFlat: newScore })
-							.then(() => {
-								console.log("User's high score flat has been updated.");
-								resolve();
-							})
-							.catch((error) => {
-								console.error("Error updating user's high score flat: ", error);
-								reject(error);
-							});
-					} else {
-						location.href = "http://localhost:3000/index.html";
-					}
-				} else if (gameType === "spatial") {
-					const currentHighScore = snapshot.val().highScoreSpatial;
-					if (newScore > currentHighScore) {
-						update(userRef, { highScoreSpatial: newScore })
-							.then(() => {
-								console.log("User's high score spatial has been updated.");
-								resolve();
-							})
-							.catch((error) => {
-								console.error(
-									"Error updating user's high score spatial: ",
-									error
-								);
-								reject(error);
-							});
-					} else {
-						location.href = "http://localhost:3000/index.html";
-					}
-				} else if (gameType === "mix") {
-					const currentHighScore = snapshot.val().highScoreMix;
-					if (newScore > currentHighScore) {
-						update(userRef, { highScoreMix: newScore })
-							.then(() => {
-								console.log("User's high score mix has been updated.");
-								resolve();
-							})
-							.catch((error) => {
-								console.error("Error updating user's high score mix: ", error);
-								reject(error);
-							});
-					} else {
-						location.href = "http://localhost:3000/index.html";
-					}
+				const currentHighScore = snapshot.val()[gameTypeData[gameType]];
+				if (newScore > currentHighScore) {
+					update(userRef, { [gameTypeData[gameType]]: newScore })
+						.then(() => {
+							console.log(`User's high score ${gameType} has been updated.`);
+							resolve();
+						})
+						.catch((error) => {
+							console.error(
+								`Error updating user's high score ${gameType}: `,
+								error
+							);
+							reject(error);
+						});
 				} else {
 					location.href = "http://localhost:3000/index.html";
 				}

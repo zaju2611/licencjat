@@ -20,3 +20,7 @@ signout.addEventListener("click", (e) => {
 			alert("błąd przy wylogowywaniu");
 		});
 });
+
+
+
+

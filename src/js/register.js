@@ -27,7 +27,6 @@ const popupText = document.querySelector(".popup p");
 function registerUser() {
 	createUserWithEmailAndPassword(auth, email.value, password.value)
 		.then((userCredential) => {
-			// Signed in
 			const user = userCredential.user;
 			set(ref(db, "users/" + user.uid), {
 				username: username.value,
@@ -83,7 +82,6 @@ const checkForm = (input) => {
 				checkLenght(password, 8);
 			} else if (el === confirmPassword) {
 				checkPassword(password, confirmPassword);
-				checkLenght(password, 8);
 			} else if (el === email) {
 				checkEmail(email);
 			}
