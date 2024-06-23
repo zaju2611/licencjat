@@ -23,3 +23,13 @@ To use the application, creating an account and logging in are required. This al
 - Firebase,
 - Gulp
 
+## Run the project
+
+* Clone or download the project repository to your local machine
+* Open the project in a text editor
+* Install project dependencies
+  ### npm i
+* Install Gulp globally
+  ### npm install --global gulp-cli
+* Run the project
+  ### gulp
