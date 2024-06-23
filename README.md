@@ -14,12 +14,6 @@ In the first three modes, the user is shown correct solutions to tasks upon clic
 
 To use the application, creating an account and logging in are required. This allows users to access the different modes and check their best results.
 
-
-## Appearance of GEODRAW
-
-![GeoDraw](https://zapodaj.net/images/6fcfb7d93e071.jpg)
-
-
 ## Tech Stack
 
 
